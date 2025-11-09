@@ -1,69 +1,148 @@
-import { Button } from "@/components/ui/button";
-import { ChevronDown, Search } from "lucide-react";
+"use client";
 
-export default function Navbar() {
+import Link from "next/link";
+import * as React from "react";
+
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+import { useIsMobile } from "@/hooks/use-mobile";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+
+const components: {
+  title: string;
+  href: string;
+  description: string;
+  icon: string;
+}[] = [
+  {
+    title: "Application",
+    href: "/",
+    description:
+      "Components crafted for build all kind of modern webapps and sites.",
+    icon: "/images/dashboard.svg",
+  },
+  {
+    title: "Dashboard",
+    href: "/",
+    description: "Build data-rich modern backends, dashboards and admin panels",
+    icon: "/images/dashboard.svg",
+  },
+  {
+    title: "AI Components",
+    href: "/",
+    description: "All you need to create stunning AI tools & landing pages",
+    icon: "/images/dashboard.svg",
+  },
+  {
+    title: "Marketing",
+    href: "/",
+    description:
+      "All you need to create stunning and high-converting landing pages",
+    icon: "/images/dashboard.svg",
+  },
+  {
+    title: "E-commerce",
+    href: "/",
+    description: "Components and Pages need to build complete online store UI",
+    icon: "/images/dashboard.svg",
+  },
+  {
+    title: "Core Components",
+    href: "/",
+    description:
+      "Core UI Components to kickstart any web projects - Open-source",
+    icon: "/assets/dashboard.svg",
+  },
+];
+
+export function Navigation() {
+  const isMobile = useIsMobile();
+
+  const pathName = usePathname();
+  if (["/sign-in", "/sign-up"].includes(pathName)) return null;
+
   return (
-    <nav className="fixed top-12 left-0 right-0 z-40 bg-white border-b border-slate-200">
-      <div className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
-        {/* Logo */}
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-600 to-blue-600 flex items-center justify-center">
-            <span className="text-white text-sm font-bold">▶</span>
+    <NavigationMenu viewport={isMobile} className="max-w-full">
+      <NavigationMenuList className="flex-wrap w-full h-[83px] space-x-2">
+        <NavigationMenuItem>
+          <NavigationMenuTrigger className="hover:rounded-xl p-1.5">
+            Components
+          </NavigationMenuTrigger>
+          <NavigationMenuContent className="z-10 -mt-10 rounded-[20px]!">
+            <ul className="grid gap-2 sm:w-[400px] md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              {components.map((component) => (
+                <ListItem
+                  key={component.title}
+                  title={component.title}
+                  href={component.href}
+                >
+                  {component.description}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+
+        <NavigationMenuItem>
+          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+            <Link href="/docs">Templates</Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+
+        <NavigationMenuItem>
+          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+            <Link href="/docs">Docs</Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+
+        <NavigationMenuItem>
+          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+            <Link href="/docs">Products</Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
+  );
+}
+
+function ListItem({
+  title,
+  children,
+  href,
+  icon,
+  ...props
+}: React.ComponentPropsWithoutRef<"li"> & { href: string; icon: string }) {
+  return (
+    <li {...props}>
+      <NavigationMenuLink asChild className="p-4 rounded-[14px]">
+        <Link
+          href={href}
+          className="flex flex-row justify-start items-start rounded-[14px] space-y-1"
+        >
+          <Image
+            src={icon}
+            alt="logo"
+            width={100}
+            height={100}
+            className="mx-auto"
+          />
+
+          <div className="mt-1">
+            <p className="text-sm leading-none font-medium">{title}</p>
+            <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
+              {children}
+            </p>
           </div>
-          <span className="font-bold text-slate-900">TailGrids</span>
-        </div>
-
-        {/* Menu */}
-        <div className="hidden md:flex items-center gap-8">
-          <button className="flex items-center gap-1 text-slate-700 hover:text-slate-900 font-medium text-sm">
-            Components <ChevronDown className="w-4 h-4" />
-          </button>
-          <button className="text-slate-700 hover:text-slate-900 font-medium text-sm">
-            Templates
-          </button>
-          <button className="text-slate-700 hover:text-slate-900 font-medium text-sm">
-            Docs
-          </button>
-          <button className="text-slate-700 hover:text-slate-900 font-medium text-sm">
-            Products
-          </button>
-          <button className="text-slate-700 hover:text-slate-900 font-medium text-sm">
-            Resources
-          </button>
-        </div>
-
-        {/* Right section */}
-        <div className="flex items-center gap-4">
-          {/* Search */}
-          <div className="hidden lg:flex items-center bg-slate-100 rounded-xl px-3 py-2 w-48">
-            <Search className="w-4 h-4 text-slate-400" />
-            <input
-              type="text"
-              placeholder="Search..."
-              className="bg-transparent ml-2 text-sm outline-none w-full text-slate-900 placeholder-slate-500"
-            />
-          </div>
-
-          {/* Social Icons */}
-          <div className="flex items-center gap-2">
-            <button className="text-slate-600 hover:text-slate-900">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7" />
-              </svg>
-            </button>
-          </div>
-
-          {/* Sign in */}
-          <button className="text-slate-700 hover:text-slate-900 font-medium text-sm">
-            Sign in
-          </button>
-
-          {/* Pricing button */}
-          <Button className="bg-slate-900 hover:bg-slate-800 text-white rounded-full px-6 text-sm">
-            Pricing & FAQ
-          </Button>
-        </div>
-      </div>
-    </nav>
+        </Link>
+      </NavigationMenuLink>
+    </li>
   );
 }

@@ -99,8 +99,5 @@
 }
 
 .container {
-  /* center: true, */
-  padding: 2rem;
-
-  /* "2xl": "1400px", */
+  padding: 0rem 2rem;
 }

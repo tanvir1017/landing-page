@@ -33,7 +33,7 @@ export default function BackgroundTexture() {
       </svg>
 
       {/* Left sidebar with texture */}
-      <div className="fixed left-0 top-0 w-20 md:w-32 h-screen bg-gradient-to-r from-slate-100 to-slate-50 border-r border-slate-200 opacity-50 pointer-events-none hidden md:block">
+      <div className="fixed left-0 top-0 w-20 md:w-32 h-screen bg-linear-to-r from-slate-100 to-slate-50 border-r border-slate-500 opacity-50 pointer-events-none hidden md:block">
         <svg
           className="absolute inset-0 w-full h-full opacity-8"
           width="100%"
@@ -66,7 +66,7 @@ export default function BackgroundTexture() {
       </div>
 
       {/* Right sidebar with texture */}
-      <div className="fixed right-0 top-0 w-20 md:w-32 h-screen bg-gradient-to-l from-slate-100 to-slate-50 border-l border-slate-200 opacity-50 pointer-events-none hidden md:block">
+      <div className="fixed right-0 top-0 w-20 md:w-32 h-screen bg-linear-to-l from-slate-100 to-slate-50 border-l border-slate-200 opacity-50 pointer-events-none hidden md:block">
         <svg
           className="absolute inset-0 w-full h-full opacity-8"
           width="100%"
