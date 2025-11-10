@@ -42,7 +42,10 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
+  /* custom */
   --text-secondary: var(--text-secondary);
+  --border-stroke: var(--border-stroke);
+  --title-text: var(--title-text);
 }
 
 :root {
@@ -81,6 +84,8 @@
 
   /* Custom variables */
   --text-secondary: #525866;
+  --border-stroke: #ededed;
+  --title-text: #1f2937;
 }
 
 @layer base {

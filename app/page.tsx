@@ -1,4 +1,3 @@
-import BackgroundTexture from "@/components/pages/home/bg-texture";
 import CTAButtons from "@/components/pages/home/cta-button";
 import HeroBadge from "@/components/pages/home/hero-badge";
 import HeroSubtitle from "@/components/pages/home/hero-subtitle";
@@ -8,9 +7,6 @@ import MacBookMockup from "@/components/pages/home/mac";
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-linear-to-br from-white via-white to-slate-50 overflow-hidden">
-      {/* Background textures and gradients */}
-      <BackgroundTexture />
-
       {/* Announcement Bar */}
       {/* <AnnouncementBar /> */}
 

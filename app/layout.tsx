@@ -1,3 +1,4 @@
+import BackgroundTexture from "@/components/pages/home/bg-texture";
 import Navbar from "@/components/shared/navbar";
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
@@ -21,9 +22,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${dmSans.className} antialiased`}>
+      <body className={`${dmSans.className} antialiased relative`}>
+        {/* Background textures and gradients */}
         <Navbar />
         {children}
+        <BackgroundTexture />
       </body>
     </html>
   );
