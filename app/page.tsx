@@ -1,34 +1,9 @@
-import CTAButtons from "@/components/pages/home/cta-button";
-import HeroBadge from "@/components/pages/home/hero-badge";
-import HeroSubtitle from "@/components/pages/home/hero-subtitle";
-import HeroTitle from "@/components/pages/home/hero-title";
-import MacBookMockup from "@/components/pages/home/mac";
+import HomePageComponents from "@/components/pages/home/home-page";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-linear-to-br from-white via-white to-slate-50 overflow-hidden">
-      {/* Announcement Bar */}
-      {/* <AnnouncementBar /> */}
-
-      {/* Main Hero Content */}
-      <div className="relative flex flex-col items-center justify-center min-h-[calc(100vh-120px)] pt-16 px-4 md:px-8">
-        <div className="flex flex-col items-center max-w-5xl mx-auto">
-          {/* Badge */}
-          <HeroBadge />
-
-          {/* Title */}
-          <HeroTitle />
-
-          {/* Subtitle */}
-          <HeroSubtitle />
-
-          {/* CTA Buttons */}
-          <CTAButtons />
-
-          {/* Mockup */}
-          <MacBookMockup />
-        </div>
-      </div>
-    </div>
+    <>
+      <HomePageComponents />
+    </>
   );
 }

@@ -1,5 +1,5 @@
-import BackgroundTexture from "@/components/pages/home/bg-texture";
 import Navbar from "@/components/shared/navbar";
+import BackgroundTexture from "@/components/style-componenets/bg-texture";
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
