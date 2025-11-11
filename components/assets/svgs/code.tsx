@@ -1,4 +1,6 @@
-function CodeIcon() {
+import { cn } from "@/lib/utils";
+
+function CodeIcon({ className }: { className?: string }) {
   return (
     <svg
       width="16"
@@ -6,6 +8,7 @@ function CodeIcon() {
       viewBox="0 0 16 14"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={cn("", className)}
     >
       <path
         d="M3.75 3.75006L0.75 6.75034L3.75 9.75034M11.625 3.75006L14.625 6.75034L11.625 9.75034M9.02043 0.750244L6.35376 12.7502"

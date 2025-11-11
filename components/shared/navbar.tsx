@@ -1,14 +1,17 @@
 "use client";
-import Image from "next/image";
+import { SessionContext } from "@/types";
 import Link from "next/link";
-
 import { useRouter } from "next/navigation";
+import DiscordIcon from "../assets/svgs/discord";
+import GithubIcon from "../assets/svgs/github";
+import SiteLogo from "../assets/svgs/Logo";
+import TwitterIcon from "../assets/svgs/twitter-x";
 import { ProfileDropDown } from "../dashboard/profile-dropdown";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Navigation } from "./navigation";
 
-const Navbar = () => {
+const Navbar = ({ session }: { session: SessionContext | null }) => {
   const router = useRouter();
   return (
     <div>
@@ -18,13 +21,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-start space-x-11">
               <div onClick={() => router.push("/")} className="cursor-pointer">
-                <Image
-                  src="/assets/Logo.svg"
-                  alt="logo"
-                  width={100}
-                  height={100}
-                  className="mx-auto"
-                />
+                <SiteLogo className="w-24! mx-auto" />
               </div>
               <Navigation />
             </div>
@@ -38,31 +35,13 @@ const Navbar = () => {
 
                 <div className="space-x-1.5">
                   <Button className="bg-white border py-4 px-3 hover:bg-inherit cursor-pointer">
-                    <Image
-                      src="/assets/twitter-x.svg"
-                      alt="twitter"
-                      width={24}
-                      height={24}
-                      className=""
-                    />
+                    <TwitterIcon />
                   </Button>
                   <Button className="bg-white border py-4 px-3 hover:bg-inherit cursor-pointer">
-                    <Image
-                      src="/assets/github.svg"
-                      alt="twitter"
-                      width={24}
-                      height={24}
-                      className=""
-                    />
+                    <GithubIcon />
                   </Button>
                   <Button className="bg-white border py-4 px-3 hover:bg-inherit cursor-pointer">
-                    <Image
-                      src="/assets/discord.svg"
-                      alt="twitter"
-                      width={24}
-                      height={24}
-                      className=""
-                    />
+                    <DiscordIcon />
                   </Button>
                 </div>
 
@@ -80,7 +59,7 @@ const Navbar = () => {
                   >
                     Pricing & FAQ
                   </Button>
-                  <ProfileDropDown />
+                  <ProfileDropDown session={session} />
                 </div>
               </div>
             </div>

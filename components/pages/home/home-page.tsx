@@ -1,3 +1,4 @@
+import Footer from "@/components/shared/footer/footer";
 import AnalyticsOverview from "./analytics-overview/analytics-overview";
 import HeroSection from "./hero/hero-section";
 import NewsLetter from "./news-letter/news-letter";
@@ -14,6 +15,7 @@ const HomePageComponents = () => {
       <TemplateShowcase />
       <TestimonialSection />
       <NewsLetter />
+      <Footer />
     </>
   );
 };

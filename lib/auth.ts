@@ -6,6 +6,7 @@ export const auth = betterAuth({
   database: new Database("./sqlite.db"),
   emailAndPassword: {
     enabled: true,
+    minPasswordLength: 6,
   },
   socialProviders: {
     google: {

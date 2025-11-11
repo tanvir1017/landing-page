@@ -1,22 +1,55 @@
 "use client";
 
+import GithubIcon from "@/components/assets/svgs/github";
+import GoogleIcon from "@/components/assets/svgs/google";
+import SiteLogo from "@/components/assets/svgs/Logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Eye, EyeOff } from "lucide-react";
-import Image from "next/image";
+import { authClient } from "@/lib/auth-client";
+import { cn } from "@/lib/utils";
+import { Eye, EyeOff, LoaderPinwheel } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { toast } from "sonner";
 
 const SignUpComponent = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSignIn = (e: React.FormEvent) => {
+  const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
-  };
 
+    try {
+      const data = await authClient.signUp.email(
+        {
+          name,
+          email,
+          password,
+        },
+        {
+          onRequest: (_ctx) => {
+            setLoading(true);
+          },
+          onSuccess: (ctx) => {
+            setLoading(false);
+            toast.success("Sign up successful");
+            //redirect("/");
+          },
+          onError: (ctx) => {
+            // display the error message
+            setLoading(false);
+            toast.error(ctx.error.message);
+          },
+        }
+      );
+    } catch (error) {
+      setLoading(false);
+      toast.error(`${(error as Error).message || "Sign up failed"}`);
+    }
+  };
   return (
     <div className="relative">
       {/* Borders */}
@@ -28,13 +61,7 @@ const SignUpComponent = () => {
         {/* Sign in page header */}
         <div className="border border-t-0 border-slate-200 flex items-center justify-center py-10">
           <div className="max-w-md text-center  space-y-4">
-            <Image
-              src="/assets/Logo.svg"
-              alt="logo"
-              width={100}
-              height={100}
-              className="mx-auto"
-            />
+            <SiteLogo className="w-36! mx-auto" />
 
             <h2 className="font-medium text-4xl leading-12 tracking-[-0.5px] text-center align-middle text-[#2E2E2E]">
               Sign In to your account
@@ -56,26 +83,16 @@ const SignUpComponent = () => {
                 {/* OAuth Buttons */}
                 <div className="space-y-3 mb-6">
                   {/* Google Button */}
-                  <button className="w-full h-12 rounded-full border-[0.5px] border-slate-200 bg-white hover:bg-slate-50 transition-colors flex items-center justify-center gap-3 text-slate-700 font-medium">
-                    <Image
-                      src="/assets/google-logo.svg"
-                      alt="google"
-                      width={20}
-                      height={20}
-                    />
+                  <Button className="w-full h-12 rounded-full border-[0.5px] border-slate-200 bg-white hover:bg-slate-200 transition-colors flex items-center justify-center gap-3 text-slate-700 font-medium cursor-pointer ">
+                    <GoogleIcon />
                     Continue with Google
-                  </button>
+                  </Button>
 
                   {/* GitHub Button */}
-                  <button className="w-full h-12 rounded-full border-[0.5px] border-slate-200 bg-white hover:bg-slate-50 transition-colors flex items-center justify-center gap-3 text-slate-700 font-medium">
-                    <Image
-                      src="/assets/github.svg"
-                      alt="google"
-                      width={20}
-                      height={20}
-                    />
+                  <Button className="w-full h-12 rounded-full border-[0.5px] border-slate-200 bg-white hover:bg-slate-200 transition-colors flex items-center justify-center gap-3 text-slate-700 font-medium cursor-pointer ">
+                    <GithubIcon className="w-6! h-6!" />
                     Continue with Github
-                  </button>
+                  </Button>
                 </div>
 
                 {/* Divider */}
@@ -146,21 +163,35 @@ const SignUpComponent = () => {
                     <div className="pb-1">
                       <p>
                         Forgot password?
-                        <Link
-                          href="/forgot-password"
-                          className="text-primary ml-1"
+                        <button
+                          onClick={() => toast.info("Not impended yet!!")}
+                          className="text-primary ml-1 cursor-pointer"
+                          type="button"
                         >
                           Reset here
-                        </Link>
+                        </button>
                       </p>
                     </div>
 
-                    {/* Sign In Button */}
+                    {/* Sign Up Button */}
                     <Button
-                      className="font-medium shadow-[inset_2px_2px_2px_0px_rgba(255,255,255,0.5),7px_7px_20px_0px_rgba(0,0,0,0.1),4px_4px_5px_0px_rgba(0,0,0,0.1)] outline-none text-[15px] bg-primary border-blue-700 border-2 w-full rounded-[12px] py-6 hover:bg-none"
+                      className={cn(
+                        "font-medium shadow-[inset_2px_2px_2px_0px_rgba(255,255,255,0.5),7px_7px_20px_0px_rgba(0,0,0,0.1),4px_4px_5px_0px_rgba(0,0,0,0.1)] outline-none text-[15px] bg-primary border-blue-700 border-2 w-full rounded-[12px] py-6 hover:bg-none cursor-pointer",
+                        {
+                          "cursor-progress": loading,
+                        }
+                      )}
+                      disabled={loading}
                       type="submit"
                     >
-                      Sign Up
+                      {loading ? (
+                        <>
+                          <LoaderPinwheel className="animate-spin animate text-slate-50" />{" "}
+                          signing up...{" "}
+                        </>
+                      ) : (
+                        "Sign Up"
+                      )}
                     </Button>
                   </form>
 

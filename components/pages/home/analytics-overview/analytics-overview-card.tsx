@@ -28,7 +28,7 @@ const AnalyticsOverviewCards = () => {
     <Container className="container border py-2 bg-linear-to-br from-indigo-50 to-purple-50">
       <div className="grid grid-cols-3 gap-x-2.5">
         {featureStats.map((feature, index) => (
-          <div className="border rounded-xl p-8 bg-white">
+          <div key={index} className="border rounded-xl p-8 bg-white">
             <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6 border border-gray-200">
               {feature.icon}
             </div>
