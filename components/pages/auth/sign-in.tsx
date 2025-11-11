@@ -1,7 +1,7 @@
 "use client";
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { signIn } from "@/lib/auth-client";
 import { Eye, EyeOff } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -55,7 +55,10 @@ const SignInComponent = () => {
                 {/* OAuth Buttons */}
                 <div className="space-y-3 mb-6">
                   {/* Google Button */}
-                  <button className="w-full h-12 rounded-full border-[0.5px] border-slate-200 bg-white hover:bg-slate-50 transition-colors flex items-center justify-center gap-3 text-slate-700 font-medium">
+                  <Button
+                    onClick={signIn}
+                    className="cursor-pointer w-full h-12 rounded-full border-[0.5px] border-slate-200 bg-white hover:bg-slate-50 transition-colors flex items-center justify-center gap-3 text-slate-700 font-medium"
+                  >
                     <Image
                       src="/assets/google-logo.svg"
                       alt="google"
@@ -63,7 +66,7 @@ const SignInComponent = () => {
                       height={20}
                     />
                     Continue with Google
-                  </button>
+                  </Button>
 
                   {/* GitHub Button */}
                   <button className="w-full h-12 rounded-full border-[0.5px] border-slate-200 bg-white hover:bg-slate-50 transition-colors flex items-center justify-center gap-3 text-slate-700 font-medium">
