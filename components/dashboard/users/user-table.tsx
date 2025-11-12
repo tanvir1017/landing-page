@@ -1,10 +1,10 @@
 "use client";
 
 import ArrowLeft from "@/components/assets/svgs/arrow-left";
+import FilterIcon from "@/components/assets/svgs/filter";
+import { StyledButtons } from "@/components/style-componenets/styled-buttons";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import {
   Table,
   TableBody,
@@ -14,11 +14,10 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import useFetchData from "@/hooks/useFetchData";
+import { cn } from "@/lib/utils";
 import { T_Deal } from "@/types";
-import { ArrowRight } from "lucide-react";
-import Image from "next/image";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { SearchIcon } from "lucide-react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { UserDeleteDialog } from "./user-delete-dialog";
 
@@ -63,33 +62,53 @@ const SkeletonLoader = () => (
 );
 
 export function UserTable() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-
-  const page = Number(searchParams.get("page")) || 1;
-  const limit = Number(searchParams.get("limit")) || 5;
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [itemsPerPage] = useState<number>(5); // Items per page
+  const [totalPages, setTotalPages] = useState<number>(1); // Total number of pages
 
   const {
     data: users,
     loading,
     error,
   } = useFetchData<T_Deal[]>(
-    `https://69102d7545e65ab24ac5d435.mockapi.io/users?page=${page}&limit=${limit}`
+    "https://69102d7545e65ab24ac5d435.mockapi.io/users"
   );
 
-  // Update the URL when page or limit changes
-  const updatePage = (newPage: number) => {
-    router.push(`?page=${newPage}&limit=${limit}`);
-  };
+  const [filteredUsers, setFilteredUsers] = useState<T_Deal[] | undefined>([]);
 
   useEffect(() => {
-    // This ensures when page or limit changes, it refetch data
-  }, [page, limit]);
+    if (users) {
+      setFilteredUsers(users);
+      setTotalPages(Math.ceil(users?.length / itemsPerPage));
+    }
+  }, [users]);
+
+  // Filter users based on search query
+  useEffect(() => {
+    if (searchQuery) {
+      const filtered = users?.filter(
+        (user) =>
+          user.customer.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          user.dealId.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setFilteredUsers(filtered);
+      setTotalPages(Math.ceil(filtered.length / itemsPerPage));
+      setCurrentPage(1); // Reset to first page after search
+    } else {
+      setFilteredUsers(users);
+      setTotalPages(Math.ceil(users?.length / itemsPerPage));
+    }
+  }, [searchQuery, users]);
+
+  // Paginate the data for current page
+  const currentPageData = filteredUsers?.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   const handleDelete = async (id: string) => {
-    // Show loading toast
     toast.promise(
-      // The promise to be wrapped in toast
       async () => {
         const response = await fetch(
           `https://69102d7545e65ab24ac5d435.mockapi.io/users/${id}`,
@@ -102,141 +121,158 @@ export function UserTable() {
           throw new Error("Failed to delete user");
         }
 
+        // Re-fetch the data or remove from local state
+        setFilteredUsers(filteredUsers.filter((user) => user.dealId !== id));
         return { id };
       },
       {
-        loading: "Deleting user...", // Loading state message
-        success: (data) => `${data.id}'s user has been deleted`, // Success state message
-        error: "Failed to delete user", // Error state message
+        loading: "Deleting user...",
+        success: (data) => `${data.id}'s user has been deleted`,
+        error: "Failed to delete user",
       }
     );
-
-    // Optionally re-fetch data after deletion
-    router.push(`?page=${page}&limit=${limit}`); // Reload after deletion
   };
 
-  if (loading) {
-    return (
-      <div className="">
-        <div className="bg-white rounded-t-xl py-4 px-6 flex items-center justify-between">
-          <div>All Users</div>
-          <div className="flex items-center space-x-2">
-            <Input placeholder="Search" />
-            <Button className="bg-white hover:bg-inherit shadow text-black px-4 py-3 border">
-              <Image
-                src="/assets/filter.svg"
-                alt="filter"
-                width={20}
-                height={20}
-              />
-              Filter
-            </Button>
-          </div>
-        </div>
-        <Table className="bg-white w-full">
-          <SkeletonLoader />
-        </Table>
-      </div>
-    );
-  }
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
 
-  if (error) {
-    return <div>Error loading users: {error}</div>;
-  }
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
 
-  const isPrevValid = page > 1;
+  const totalPagesArray = Array.from(
+    { length: totalPages },
+    (_, idx) => idx + 1
+  );
 
   return (
-    <div className="">
+    <div>
       <div className="bg-white rounded-t-xl py-4 px-6 flex items-center justify-between">
-        <div>All Users</div>
+        <div>
+          <p className="leading-7 tracking-[-0.2px] text-[18px] font-bold text-[#1D2939]">
+            All Users
+          </p>
+        </div>
         <div className="flex items-center space-x-2">
-          <Input placeholder="Search" />
-          <Button className="bg-white hover:bg-inherit shadow text-black px-4 py-3 border">
-            <Image
-              src="/assets/filter.svg"
-              alt="filter"
-              width={20}
-              height={20}
+          <div className="relative">
+            <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 " />
+            <Input
+              placeholder="Search..."
+              value={searchQuery}
+              onChange={handleSearch}
+              className="pl-10 py-3.5 pr-4 w-[320px] h-11 rounded-[12px] border-[#D0D5DD] border"
             />
-            Filter
-          </Button>
+          </div>
+          <StyledButtons.Icons
+            onClick={() => toast.info("Not implemented yet!!")}
+            className="py-4 px-3 space-x-1 cursor-pointer h-11 rounded-[12px]"
+          >
+            <FilterIcon className="text-[#344054]" />
+            <p className="text-[#344054] leading-5 text-sm tracking-[-0.02px]">
+              Filter
+            </p>
+          </StyledButtons.Icons>
         </div>
       </div>
 
       <Table className="bg-white w-full">
         <TableHeader className="bg-[#F9FAFB]">
           <TableRow>
-            <TableHead className="py-3 px-6 flex items-end space-x-3">
-              <Checkbox id="DEL_ID_ALL" className="block" />
-              <Label htmlFor="DEL_ID_ALL" className="block">
-                Deal ID
-              </Label>
+            <TableHead className="py-3 px-6 leading-5 text-sm font-medium tracking-[-0.02px] text-[#667085]">
+              Deal ID
             </TableHead>
-            <TableHead className="py-3 px-6">Customer</TableHead>
-            <TableHead className="py-3 px-6">Product/Service</TableHead>
-            <TableHead className="py-3 px-6">Deal Value</TableHead>
-            <TableHead className="py-3 px-6 text-center">Close Date</TableHead>
-            <TableHead className="py-3 px-6 text-center">Status</TableHead>
-            <TableHead className="py-3 px-6 text-center">Action</TableHead>
+            <TableHead className="py-3 px-6 leading-5 text-sm font-medium tracking-[-0.02px] text-[#667085]">
+              Customer
+            </TableHead>
+            <TableHead className="py-3 px-6 leading-5 text-sm font-medium tracking-[-0.02px] text-[#667085]">
+              Product/Service
+            </TableHead>
+            <TableHead className="py-3 px-6 leading-5 text-sm font-medium tracking-[-0.02px] text-[#667085]">
+              Deal Value
+            </TableHead>
+            <TableHead className="text-center py-3 px-6 leading-5 text-sm font-medium tracking-[-0.02px] text-[#667085]">
+              Close Date
+            </TableHead>
+            <TableHead className="text-center py-3 px-6 leading-5 text-sm font-medium tracking-[-0.02px] text-[#667085]">
+              Status
+            </TableHead>
+            <TableHead className="text-center py-3 px-6 leading-5 text-sm font-medium tracking-[-0.02px] text-[#667085]">
+              Action
+            </TableHead>
           </TableRow>
         </TableHeader>
 
         <TableBody>
-          {users &&
-            users.map((user) => (
-              <TableRow key={user.dealId}>
-                <TableCell className="py-3.5 px-6 flex items-center space-x-2 ">
-                  <Checkbox id={`del_id_${user.dealId}`} />
-                  <Label htmlFor={`del_id_${user.dealId}`} className="mt-1">
-                    {user.dealId}
-                  </Label>
-                </TableCell>
-                <TableCell className="py-3.5 px-6">{user.customer}</TableCell>
-                <TableCell className="py-3.5 px-6">{user.product}</TableCell>
-                <TableCell className="py-3.5 px-6">{user.dealValue}</TableCell>
-                <TableCell className="py-3.5 px-6 text-center">
-                  {user.closeDate}
-                </TableCell>
-                <TableCell className="py-3.5 px-6 text-center">
-                  {user.status}
-                </TableCell>
-                <TableCell className="py-3.5 px-6 text-center">
-                  <UserDeleteDialog
-                    onDelete={handleDelete}
-                    userId={user.dealId}
-                  />
-                </TableCell>
-              </TableRow>
-            ))}
+          {currentPageData?.map((user) => (
+            <TableRow key={user.dealId}>
+              <TableCell className="py-3.5 px-6">{user.dealId}</TableCell>
+              <TableCell className="py-3.5 px-6">{user.customer}</TableCell>
+              <TableCell className="py-3.5 px-6">{user.product}</TableCell>
+              <TableCell className="py-3.5 px-6">{user.dealValue}</TableCell>
+              <TableCell className="py-3.5 px-6 text-center">
+                {user.closeDate}
+              </TableCell>
+              <TableCell className="py-3.5 px-6 text-center">
+                {user.status}
+              </TableCell>
+              <TableCell className="py-3.5 px-6 text-center">
+                <UserDeleteDialog
+                  onDelete={handleDelete}
+                  userId={user.dealId}
+                />
+              </TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
 
-      <div className="bg-white rounded-b-xl w-full border-t">
-        <div className="flex items-center justify-end pl-5">
-          {/* <div>
-            Showing {(page - 1) * limit + 1} to {page * limit} of{" "}
-            {users && users.length}
-          </div> */}
-          <div className="p-4">
-            <Button
-              className={`${isPrevValid ? "" : "disable"} cursor-pointer `}
-              disabled={!isPrevValid}
-              onClick={() => updatePage(isPrevValid ? page - 1 : page)}
-            >
-              <ArrowLeft />
-            </Button>
+      <div className="flex items-center justify-between py-4 px-6 bg-white border-t rounded-b-xl">
+        <div className="pl-5">
+          <p className="text-sm text-[#667085]">
+            Showing{" "}
+            <span className="font-medium text-[#344054]">
+              {currentPageData?.length}
+            </span>{" "}
+            of{" "}
+            <span className="font-medium text-[#344054]">
+              {filteredUsers?.length}
+            </span>{" "}
+            results
+          </p>
+        </div>
+        <div className="flex space-x-2">
+          <StyledButtons.Icons
+            className=" px-3! py-2 rounded-[14px] cursor-pointer"
+            disabled={currentPage === 1}
+            onClick={() => handlePageChange(currentPage - 1)}
+          >
+            <ArrowLeft />
+          </StyledButtons.Icons>
 
+          {totalPagesArray.map((page) => (
             <Button
-              className={`${
-                users && users.length < limit ? "disable" : ""
-              } cursor-pointer `}
-              disabled={page === 4}
-              onClick={() => updatePage(page + 1)}
+              key={page}
+              onClick={() => handlePageChange(page)}
+              className={cn(
+                "bg-white text-[#344054] leading-5 text-sm p-3 rounded-xl size-10 hover:bg-white cursor-pointer ",
+                {
+                  "bg-[#3758F9] hover:bg-[#3758F9] text-white":
+                    currentPage === page,
+                }
+              )}
             >
-              <ArrowRight />
+              {page}
             </Button>
-          </div>
+          ))}
+
+          <StyledButtons.Icons
+            className="text-black px-3! py-2 rounded-[14px] cursor-pointer"
+            disabled={currentPage === totalPages}
+            onClick={() => handlePageChange(currentPage + 1)}
+          >
+            <ArrowLeft className="rotate-180" />
+          </StyledButtons.Icons>
         </div>
       </div>
     </div>

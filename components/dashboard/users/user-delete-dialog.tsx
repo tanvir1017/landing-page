@@ -1,4 +1,5 @@
 import AlertIcon from "@/components/assets/svgs/alert";
+import { StyledButtons } from "@/components/style-componenets/styled-buttons";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -10,7 +11,6 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
 import { useState } from "react";
 
@@ -26,9 +26,9 @@ export function UserDeleteDialog({
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>
       <AlertDialogTrigger asChild>
-        <Button className="shadow-none border-none bg-none cursor-pointer text-[#323544] hover:text-red-500">
+        <StyledButtons.Icons className="shadow-none hover:bg-none bg-transparent border-none cursor-pointer text-[#323544] hover:text-red-500">
           <Trash2 />
-        </Button>
+        </StyledButtons.Icons>
       </AlertDialogTrigger>
 
       <AlertDialogContent className="p-10 rounded-[34px]">
