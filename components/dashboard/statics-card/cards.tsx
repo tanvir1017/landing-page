@@ -1,24 +1,38 @@
+import { cn } from "@/lib/utils";
+
 const StaticsCardsComponent = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
       {analyticsCards.map((card, index) => (
         <div
           key={index}
-          className="bg-white rounded-2xl shadow-sm p-6 border border-gray-100"
+          className="bg-white rounded-2xl p-6 border-[#E4E7EC] border space-y-3"
         >
-          <p className="text-sm text-gray-500 mb-2">{card.title}</p>
+          <p className="text-[#667085] leading-5 tracking-[-0.2px] text-sm">
+            {card.title}
+          </p>
           <div className="flex items-baseline justify-between">
-            <p className="text-3xl font-bold text-gray-900">{card.value}</p>
-            <span
-              className={`text-sm font-medium flex items-center ${
-                card.changeType === "positive"
-                  ? "text-green-600"
-                  : "text-red-600"
-              }`}
-            >
-              {card.changeType === "negative" && "↓"} {card.change}
-              <span className="text-gray-500 ml-1">Vs last month</span>
-            </span>
+            <h5 className="text-2xl leading-8 tracking-[-0.5px] font-semibold text-[#1D2939]">
+              {card.value}
+            </h5>
+            <div className="flex items-center space-x-1">
+              <span
+                className={cn(
+                  "text-xs leading-[18px] font-medium flex items-center px-2 py-0.5 rounded-full",
+                  {
+                    "text-[#039855] bg-[#ECFDF3]":
+                      card.changeType === "positive",
+                    "text-[#D92D20] bg-[#FEF3F2]":
+                      card.changeType !== "positive",
+                  }
+                )}
+              >
+                {card.change}
+              </span>
+              <p className="text-[#667085] leading-4 text-xs tracking-[-0.2px]">
+                Vs last month
+              </p>
+            </div>
           </div>
         </div>
       ))}

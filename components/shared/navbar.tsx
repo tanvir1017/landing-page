@@ -72,12 +72,14 @@ const Navbar = ({
                   </div>
 
                   <div className="flex items-center space-x-4">
-                    <Link
-                      href="/sign-in"
-                      className="bg-white hover:bg-inherit cursor-pointer"
-                    >
-                      Sign in
-                    </Link>
+                    {session ? null : (
+                      <Link
+                        href="/sign-in"
+                        className="bg-white hover:bg-inherit cursor-pointer"
+                      >
+                        Sign in
+                      </Link>
+                    )}
                     <StyledButtons.PrimaryNeviBlue className="h-[42px] w-[123px] rounded-xl">
                       Pricing & FAQ
                     </StyledButtons.PrimaryNeviBlue>

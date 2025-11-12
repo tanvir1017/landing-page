@@ -29,7 +29,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${dmSans.className} antialiased relative isolate`}>
+      <body className={`${dmSans.className} antialiased relative isolate `}>
         <Navbar session={session} megaMenu={megaMenu} />
         <PatternWrapper>{children}</PatternWrapper>
         <Toaster position="top-center" />

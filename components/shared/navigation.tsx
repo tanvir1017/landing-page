@@ -23,7 +23,7 @@ export function Navigation({ megaMenu }: { megaMenu: T_MenuItem[] }) {
       <NavigationMenuList className="flex-wrap w-full space-x-2">
         {componentsColumn?.columns && (
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="hover:rounded-xl p-1.5">
+            <NavigationMenuTrigger className="hover:rounded-xl p-1.5 cursor-pointer">
               {componentsColumn.label}
             </NavigationMenuTrigger>
             <NavigationMenuContent className="z-10 -mt-10 rounded-[20px]!">

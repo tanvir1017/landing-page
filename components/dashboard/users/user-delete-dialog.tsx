@@ -1,3 +1,4 @@
+import AlertIcon from "@/components/assets/svgs/alert";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -11,7 +12,6 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
-import Image from "next/image";
 import { useState } from "react";
 
 export function UserDeleteDialog({
@@ -36,12 +36,7 @@ export function UserDeleteDialog({
           <div className="flex items-center justify-center">
             <div className="bg-linear-to-b from-red-100/75 rounded-full p-5">
               <div className="bg-white shadow p-5 rounded-full">
-                <Image
-                  src="/assets/alert.svg"
-                  alt="delete-alert"
-                  width={24}
-                  height={24}
-                />
+                <AlertIcon />
               </div>
             </div>
           </div>
