@@ -1,4 +1,6 @@
-import { Button } from "@/components/ui/button";
+import { StyledButtons } from "@/components/style-componenets/styled-buttons";
+import { geistMono } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 
@@ -27,7 +29,7 @@ const imgSrc = [
 
 export default function HeroBadge() {
   return (
-    <div className="flex items-center justify-center gap-3 mb-8 animation-fade-in border rounded-full pl-1.5 pr-2 py-1.5">
+    <div className="flex items-center justify-center gap-3 mb-8 animation-fade-in border border-[#EDEDED] rounded-full pl-1.5 pr-2 py-1.5 bg-white">
       {/* Avatar Stack */}
       <div className="flex -space-x-2">
         {imgSrc.map(({ src, alt, id }) => (
@@ -41,13 +43,18 @@ export default function HeroBadge() {
       </div>
 
       {/* Text */}
-      <div className="flex items-center space-x-2">
-        <span className="text-[#6B7280]">
+      <div className="flex items-center space-x-2 ">
+        <span
+          className={cn(
+            "text-[#6B7280] text-sm font-medium leading-5 tracking-[-0.2px]",
+            geistMono.className
+          )}
+        >
           Used by 65,000+ Designers worldwide{" "}
         </span>
-        <Button className="bg-white hover:bg-inherit border rounded-2xl">
+        <StyledButtons.Icons className="shadow-[0px_0px_0px_1px_rgba(0,0,0,0.09),0_1px_4px_rgba(0,0,0,0.15),inset_0_2px_4px_rgba(0,0,0,0.01)] rounded-full w-9 h-[30px] px-1.5">
           <ChevronRight className="inline w-4 h-4  text-black" />
-        </Button>
+        </StyledButtons.Icons>
       </div>
     </div>
   );

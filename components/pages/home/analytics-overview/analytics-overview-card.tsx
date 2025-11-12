@@ -1,37 +1,22 @@
 import Container from "@/components/shared/container";
-import { Grid3x3, Layers, Palette } from "lucide-react";
-const featureStats = [
-  {
-    icon: <Layers className="w-6 h-6 text-gray-400" />,
-    number: "400+",
-    title: "Widgets & Examples",
-    description:
-      "Explore a rich collection of ready-to-use widgets and examples — built to inspire and speed up your design workflow.",
-  },
-  {
-    icon: <Grid3x3 className="w-6 h-6 text-gray-400" />,
-    number: "10000+",
-    title: "Components & Variant",
-    description:
-      "Discover hundreds of flexible components and variants — crafted to help you design faster and maintain consistency effortlessly.",
-  },
-  {
-    icon: <Palette className="w-6 h-6 text-gray-400" />,
-    number: "650+",
-    title: "Styles, Variable & Tokens",
-    description:
-      "Access well-structured styles, variables, and tokens — ensuring seamless scalability and visual harmony across every design.",
-  },
-];
+import { StyledButtons } from "@/components/style-componenets/styled-buttons";
+import Image from "next/image";
+
 const AnalyticsOverviewCards = () => {
   return (
     <Container className="container border py-2 bg-linear-to-br from-indigo-50 to-purple-50">
       <div className="grid grid-cols-3 gap-x-2.5">
         {featureStats.map((feature, index) => (
           <div key={index} className="border rounded-xl p-8 bg-white">
-            <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6 border border-gray-200">
-              {feature.icon}
-            </div>
+            <StyledButtons.Icons className="shadow-[0px_0px_0px_2px_rgba(0,0,0,0.1),0_1px_4px_rgba(0,0,0,0.15),inset_0_2px_4px_rgba(0,0,0,0.01)] rounded-[18px] size-16">
+              <Image
+                src={feature.icon}
+                width={36}
+                height={36}
+                alt="Icon"
+                className=""
+              />
+            </StyledButtons.Icons>
             <h3 className="text-3xl font-bold text-gray-900 mb-2">
               {feature.number}
             </h3>
@@ -46,4 +31,27 @@ const AnalyticsOverviewCards = () => {
   );
 };
 
+const featureStats = [
+  {
+    icon: "/assets/layer.png",
+    number: "400+",
+    title: "Widgets & Examples",
+    description:
+      "Explore a rich collection of ready-to-use widgets and examples — built to inspire and speed up your design workflow.",
+  },
+  {
+    icon: "/assets/component.png",
+    number: "10000+",
+    title: "Components & Variant",
+    description:
+      "Discover hundreds of flexible components and variants — crafted to help you design faster and maintain consistency effortlessly.",
+  },
+  {
+    icon: "/assets/variable.png",
+    number: "650+",
+    title: "Styles, Variable & Tokens",
+    description:
+      "Access well-structured styles, variables, and tokens — ensuring seamless scalability and visual harmony across every design.",
+  },
+];
 export default AnalyticsOverviewCards;

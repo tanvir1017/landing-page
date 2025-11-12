@@ -9,15 +9,14 @@ import TwitterIcon from "../assets/svgs/twitter-x";
 import { ProfileDropDown } from "../dashboard/profile-dropdown";
 
 import { StyledButtons } from "../style-componenets/styled-buttons";
-import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Navigation } from "./navigation";
 
 const Navbar = ({ session }: { session: SessionContext | null }) => {
   const router = useRouter();
   return (
-    <div>
-      <div className="border-b mt-5"></div>
+    <div className="sticky top-0  z-10 bg-white">
+      <div className="border-b"></div>
       <div className="border-b p-5 w-full">
         <div className="max-w-full mx-[150px]">
           <div className="flex items-center justify-between">
@@ -54,13 +53,9 @@ const Navbar = ({ session }: { session: SessionContext | null }) => {
                   >
                     Sign in
                   </Link>
-                  <Button
-                    className="hover:bg-[#0f172a] py-6 px-4 bg-[#0f172a] text-white rounded-xl
-                [background:radial-gradient(at_top,rgba(255,255,255,0.08)_0%,transparent_70%)_inset,#0f172a]
-                "
-                  >
+                  <StyledButtons.PrimaryNeviBlue className="h-[42px] w-[123px] rounded-xl">
                     Pricing & FAQ
-                  </Button>
+                  </StyledButtons.PrimaryNeviBlue>
                   <ProfileDropDown session={session} />
                 </div>
               </div>

@@ -1,4 +1,8 @@
-import { Button } from "@/components/ui/button";
+import FigmaIcon from "@/components/assets/svgs/figma";
+import PaletteIcon from "@/components/assets/svgs/palette";
+import ShadowIcon from "@/components/assets/svgs/shadow";
+import TypoIcon from "@/components/assets/svgs/typo";
+import { StyledButtons } from "@/components/style-componenets/styled-buttons";
 import { ChevronRightIcon } from "lucide-react";
 import Image from "next/image";
 
@@ -22,9 +26,9 @@ const CustomizedSectionFeatures = () => {
 
           <div className="mt-8 space-y-6 max-w-xl">
             <div className="flex items-center justify-center space-x-6">
-              <Button className="bg-white hover:bg-white text-black border">
-                Figma
-              </Button>
+              <StyledButtons.Icons className="shadow-[0px_0px_0px_2px_rgba(0,0,0,0.09),0_1px_4px_rgba(0,0,0,0.15),inset_0_2px_4px_rgba(0,0,0,0.01)] rounded-[14px] size-12">
+                <TypoIcon className="size-6" />
+              </StyledButtons.Icons>
               <div>
                 <p>
                   A precise, versatile, and fully scalable typography
@@ -34,9 +38,9 @@ const CustomizedSectionFeatures = () => {
               </div>
             </div>
             <div className="flex items-center justify-center space-x-6">
-              <Button className="bg-white hover:bg-white text-black border">
-                Figma
-              </Button>
+              <StyledButtons.Icons className="shadow-[0px_0px_0px_2px_rgba(0,0,0,0.09),0_1px_4px_rgba(0,0,0,0.15),inset_0_2px_4px_rgba(0,0,0,0.01)] rounded-[14px] size-12">
+                <PaletteIcon className="size-6" />
+              </StyledButtons.Icons>
               <div>
                 <p>
                   Vibrant color palette with 253+ prebuilt colors, extensive
@@ -45,9 +49,9 @@ const CustomizedSectionFeatures = () => {
               </div>
             </div>
             <div className="flex items-center justify-center space-x-6">
-              <Button className="bg-white hover:bg-white text-black border">
-                Figma
-              </Button>
+              <StyledButtons.Icons className="shadow-[0px_0px_0px_2px_rgba(0,0,0,0.09),0_1px_4px_rgba(0,0,0,0.15),inset_0_2px_4px_rgba(0,0,0,0.01)] rounded-[14px] size-12">
+                <ShadowIcon className="size-6" />
+              </StyledButtons.Icons>
               <div>
                 <p>
                   Seamless shadow and blur styles designed to ensure consistency
@@ -60,25 +64,24 @@ const CustomizedSectionFeatures = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-x-3 mt-11">
             {/* Preview Figma Button */}
-            <Button
-              variant="outline"
-              className="border-slate-200 border hover:bg-slate-50 rounded-lg px-6 py-3 h-auto bg-transparent"
-            >
-              <Image
-                src="/assets/figma.svg"
-                alt="figma"
-                width={24}
-                height={24}
-              />
-              Preview <span>- Figma</span>{" "}
-              <ChevronRightIcon className="w-4 h-4" />
-            </Button>
+            <StyledButtons.Icons className="cursor-pointer h-11! w-[191.64px] px-3.5">
+              <FigmaIcon className="size-6" />{" "}
+              <span className="text-[#1F2937] flex items-center">
+                Preview{" "}
+                <span className="flex items-center text-black/70 ml-0.5">
+                  - Figma <ChevronRightIcon className="w-4 h-4" />
+                </span>{" "}
+              </span>
+            </StyledButtons.Icons>
 
             {/* Buy Now Button */}
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-6 py-3 h-auto font-medium flex items-center gap-2 shadow-lg hover:shadow-xl transition-shadow">
-              Buy now <span>- One-time</span>
-              <ChevronRightIcon className="w-4 h-4" />
-            </Button>
+            <StyledButtons.PrimaryNeviBlue className="">
+              Buy now{" "}
+              <span className="space-x-1 flex items-center justify-center text-white/75">
+                <span>- One-time</span>
+                <ChevronRightIcon className="w-4 h-4" />
+              </span>
+            </StyledButtons.PrimaryNeviBlue>
           </div>
         </div>
       </div>

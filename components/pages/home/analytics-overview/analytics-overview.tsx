@@ -1,3 +1,4 @@
+import { SectionHero } from "@/components/style-componenets/section-heros";
 import AnalyticsOverviewCards from "./analytics-overview-card";
 
 export default function AnalyticsOverview() {
@@ -18,28 +19,19 @@ export default function AnalyticsOverview() {
       </div> */}
       {/* Main Content Section */}
       {/* <Container className="max-w-10/12"> */}
-      <div className="border-b border-t mb-10">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-6">
-            <div className="col-span-4 py-10">
-              <h2 className="text-4xl font-bold text-title-text max-w-xl">
-                The perfect foundation to kickstart any project.
-              </h2>
-              <p className="text-gray-600 text-sm leading-relaxed max-w-2xl">
-                A comprehensive UI kit — thoughtfully crafted with{" "}
-                <span className="font-semibold">
-                  Auto Layout 5.0, smart variants, variables
-                </span>
-                , and built-in WCAG accessibility for a seamless design
-                experience.
-              </p>
-            </div>
-
-            {/* Making extra spaces */}
-            <div></div>
-          </div>
-        </div>
-      </div>
+      <SectionHero.SectionBody>
+        <SectionHero.Title>
+          The perfect foundation to kickstart any project.
+        </SectionHero.Title>
+        <SectionHero.Subtitle>
+          {" "}
+          A comprehensive UI kit — thoughtfully crafted with{" "}
+          <span className="font-medium text-[#374151]">
+            Auto Layout 5.0, smart variants, variables
+          </span>
+          , and built-in WCAG accessibility for a seamless design experience.
+        </SectionHero.Subtitle>
+      </SectionHero.SectionBody>
 
       <div className="border-b mb-10">
         <AnalyticsOverviewCards />

@@ -1,6 +1,5 @@
 "use client";
 import { signOutAction } from "@/app/actions/auth";
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,6 +14,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import LogoutIcon from "../assets/svgs/logout";
+import UserIcon from "../assets/svgs/user-icon";
+import { StyledButtons } from "../style-componenets/styled-buttons";
 
 export function ProfileDropDown({
   session,
@@ -22,16 +23,22 @@ export function ProfileDropDown({
   session: SessionContext | null;
 }) {
   const router = useRouter();
-  return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
+  /*   <Button
           className=" hover:bg-[#0f172a] py-6 px-4 bg-[#0f172a] text-white rounded-xl
                 [background:radial-gradient(at_top,rgba(255,255,255,0.08)_0%,transparent_70%)_inset,#0f172a]"
         >
           <Image src="/assets/user.svg" alt="user" width={24} height={24} />{" "}
           <span>Account</span> <ChevronDown />
-        </Button>
+        </Button> */
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <StyledButtons.PrimaryNeviBlue className="h-[46px] w-[147px] rounded-xl pl-[18px] pr-3.5 py-[11px] flex items-center">
+          <UserIcon className="size-6" />{" "}
+          <span className="flex items-center space-x-1.5">
+            <span>Account</span> <ChevronDown />
+          </span>
+        </StyledButtons.PrimaryNeviBlue>
       </DropdownMenuTrigger>
       <DropdownMenuContent
         className="w-[300px] max-h-full rounded-[20px]! p-2 border-stroke border shadow-xl mr-40 mt-[10.5px]"

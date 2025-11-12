@@ -1,4 +1,8 @@
-import { Button } from "@/components/ui/button";
+import AutoLayoutIcon from "@/components/assets/svgs/auto-layout";
+import FigmaIcon from "@/components/assets/svgs/figma";
+import FigmaGrayIcon from "@/components/assets/svgs/figma-gray";
+import ThemeIcon from "@/components/assets/svgs/theme";
+import { StyledButtons } from "@/components/style-componenets/styled-buttons";
 import { ChevronRightIcon } from "lucide-react";
 import Image from "next/image";
 
@@ -13,9 +17,10 @@ const SectionFeatures = () => {
 
           <div className="mt-8 space-y-6 max-w-xl">
             <div className="flex items-center justify-center space-x-6">
-              <Button className="bg-white hover:bg-white text-black border">
-                Figma
-              </Button>
+              <StyledButtons.Icons className="shadow-[0px_0px_0px_2px_rgba(0,0,0,0.09),0_1px_4px_rgba(0,0,0,0.15),inset_0_2px_4px_rgba(0,0,0,0.01)] rounded-[14px] size-12">
+                <FigmaGrayIcon className="size-6" />
+              </StyledButtons.Icons>
+
               <div>
                 <p>
                   Built with Figma's latest and coolest features to make your
@@ -24,9 +29,9 @@ const SectionFeatures = () => {
               </div>
             </div>
             <div className="flex items-center justify-center space-x-6">
-              <Button className="bg-white hover:bg-white text-black border">
-                Figma
-              </Button>
+              <StyledButtons.Icons className="shadow-[0px_0px_0px_2px_rgba(0,0,0,0.09),0_1px_4px_rgba(0,0,0,0.15),inset_0_2px_4px_rgba(0,0,0,0.01)] rounded-[14px] size-12">
+                <AutoLayoutIcon className="size-6" />
+              </StyledButtons.Icons>
               <div>
                 <p>
                   Fully compatible with Auto Layout 5.0 across all pages,
@@ -35,9 +40,10 @@ const SectionFeatures = () => {
               </div>
             </div>
             <div className="flex items-center justify-center space-x-6">
-              <Button className="bg-white hover:bg-white text-black border">
-                Figma
-              </Button>
+              <StyledButtons.Icons className="shadow-[0px_0px_0px_2px_rgba(0,0,0,0.09),0_1px_4px_rgba(0,0,0,0.15),inset_0_2px_4px_rgba(0,0,0,0.01)] rounded-[14px] size-12">
+                <ThemeIcon className="size-6" />
+              </StyledButtons.Icons>
+
               <div>
                 <p>
                   Switch between Light and Dark modes effortlessly with Figma's
@@ -50,25 +56,24 @@ const SectionFeatures = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-x-3 mt-11">
             {/* Preview Figma Button */}
-            <Button
-              variant="outline"
-              className="border-slate-200 border hover:bg-slate-50 rounded-lg px-6 py-3 h-auto bg-transparent"
-            >
-              <Image
-                src="/assets/figma.svg"
-                alt="figma"
-                width={24}
-                height={24}
-              />
-              Preview <span>- Figma</span>{" "}
-              <ChevronRightIcon className="w-4 h-4" />
-            </Button>
+            <StyledButtons.Icons className="cursor-pointer h-11! w-[191.64px] px-3.5">
+              <FigmaIcon className="size-6" />{" "}
+              <span className="text-[#1F2937] flex items-center">
+                Preview{" "}
+                <span className="flex items-center text-black/70 ml-0.5">
+                  - Figma <ChevronRightIcon className="w-4 h-4" />
+                </span>{" "}
+              </span>
+            </StyledButtons.Icons>
 
             {/* Buy Now Button */}
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-6 py-3 h-auto font-medium flex items-center gap-2 shadow-lg hover:shadow-xl transition-shadow">
-              Buy now <span>- One-time</span>
-              <ChevronRightIcon className="w-4 h-4" />
-            </Button>
+            <StyledButtons.PrimaryNeviBlue className="">
+              Buy now{" "}
+              <span className="space-x-1 flex items-center justify-center text-white/75">
+                <span>- One-time</span>
+                <ChevronRightIcon className="w-4 h-4" />
+              </span>
+            </StyledButtons.PrimaryNeviBlue>
           </div>
         </div>
         <div className="col-span-1  p-4">

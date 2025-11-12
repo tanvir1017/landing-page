@@ -42,6 +42,7 @@ const SignInComponent = () => {
           },
         }
       );
+      console.log("🚀 ~ handleSignIn ~ data:", data);
     } catch (error) {
       setLoading(false);
       toast.error(`${(error as Error).message || "Sign in failed"}`);

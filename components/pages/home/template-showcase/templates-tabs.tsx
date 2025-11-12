@@ -1,5 +1,5 @@
+import FigmaIcon from "@/components/assets/svgs/figma";
 import { StyledButtons } from "@/components/style-componenets/styled-buttons";
-import { Button } from "@/components/ui/button";
 import { ChevronRightIcon } from "lucide-react";
 import Image from "next/image";
 
@@ -8,21 +8,22 @@ const TemplateTabs = () => {
     <div className="bg-[#F3F4F6] mb-10">
       <div className="border border-r-0 border-l-0 py-5 px-10">
         <div className="tabs-btns space-x-1">
-          <Button className="bg-white hover:bg-white border text-black rounded-full">
+          <StyledButtons.Icons className="h-[34px] w-[120px] py-[7px] pl-2.5 pr-3 text-[#1F2937] rounded-full">
             All Templates
-          </Button>
-          <Button className="bg-[#F3F4F6] hover:bg-white border-[#F3F4F6] transition-all hover:shadow-sm cursor-pointer border text-black rounded-full">
+          </StyledButtons.Icons>
+
+          <StyledButtons.Icons className="bg-[#F3F4F6] hover:bg-white border-[#F3F4F6] transition-all hover:shadow-sm cursor-pointer border text-black rounded-full">
             Agency
-          </Button>
-          <Button className="bg-[#F3F4F6] hover:bg-white border-[#F3F4F6] transition-all hover:shadow-sm cursor-pointer border text-black rounded-full">
+          </StyledButtons.Icons>
+          <StyledButtons.Icons className="bg-[#F3F4F6] hover:bg-white border-[#F3F4F6] transition-all hover:shadow-sm cursor-pointer border text-black rounded-full">
             Business
-          </Button>
-          <Button className="bg-[#F3F4F6] hover:bg-white border-[#F3F4F6] transition-all hover:shadow-sm cursor-pointer border text-black rounded-full">
+          </StyledButtons.Icons>
+          <StyledButtons.Icons className="bg-[#F3F4F6] hover:bg-white border-[#F3F4F6] transition-all hover:shadow-sm cursor-pointer border text-black rounded-full">
             E-Commerce
-          </Button>
-          <Button className="bg-[#F3F4F6] hover:bg-white border-[#F3F4F6] transition-all hover:shadow-sm cursor-pointer border text-black rounded-full">
+          </StyledButtons.Icons>
+          <StyledButtons.Icons className="bg-[#F3F4F6] hover:bg-white border-[#F3F4F6] transition-all hover:shadow-sm cursor-pointer border text-black rounded-full">
             Dashboard
-          </Button>
+          </StyledButtons.Icons>
         </div>
       </div>
 
@@ -41,38 +42,28 @@ const TemplateTabs = () => {
           <div className="absolute inset-x-0 bottom-0 h-64 w-full bg-linear-to-t from-[#F3F4F6] via-white/90 to-white/20 opacity-90 pointer-events-none">
             <div className="relative h-full w-full flex justify-center">
               <div className="flex items-end justify-center  flex-col sm:flex-row gap-4 mb-16 ">
-                <Button
-                  variant="outline"
-                  className="border-slate-200 border hover:bg-slate-50 rounded-lg px-6 py-3 h-auto bg-transparent"
-                >
-                  <Image
-                    src="/assets/figma.svg"
-                    alt="figma"
-                    width={24}
-                    height={24}
-                  />
-                  Preview <span>- Figma</span>{" "}
-                  <ChevronRightIcon className="w-4 h-4" />
-                </Button>
+                <StyledButtons.Icons className="cursor-pointer h-11! w-[191.64px] px-3.5">
+                  <FigmaIcon className="size-6" />{" "}
+                  <span className="text-[#1F2937] flex items-center">
+                    Preview{" "}
+                    <span className="flex items-center">
+                      - Figma <ChevronRightIcon className="w-4 h-4" />
+                    </span>{" "}
+                  </span>
+                </StyledButtons.Icons>
 
                 {/* Buy Now Button */}
-                <StyledButtons.PrimaryCTA>
-                  Buy now <span>- One-time</span>
-                  <ChevronRightIcon className="w-4 h-4" />
-                </StyledButtons.PrimaryCTA>
+                <StyledButtons.PrimaryNeviBlue className="">
+                  Buy now{" "}
+                  <span className="space-x-1 flex items-center justify-center text-white/75">
+                    <span>- One-time</span>
+                    <ChevronRightIcon className="w-4 h-4" />
+                  </span>
+                </StyledButtons.PrimaryNeviBlue>
               </div>
             </div>
           </div>
         </div>
-
-        {/* <div className="bg-linear-to-t from-[rgba(243,244,246,100)] to-[rgba(243,244,246,0)] from-25% to-100%  max-h-[250px] h-full absolute bottom-2 w-full"> */}
-        {/* <div class="relative w-full h-screen bg-[#c84e55]">
-          <div class="absolute inset-0 bg-gradient-to-t from-white via-white/70 to-transparent opacity-80 pointer-events-none"></div>
-
-          <div class="relative z-10 flex items-center justify-center h-full">
-            <h1 class="text-white text-5xl font-bold">Your Content Here</h1>
-          </div>
-        </div> */}
       </div>
     </div>
   );

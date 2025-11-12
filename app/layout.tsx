@@ -1,18 +1,13 @@
 import Navbar from "@/components/shared/navbar";
 import BackgroundTexture from "@/components/style-componenets/bg-texture";
 import { auth } from "@/lib/auth";
+import { dmSans } from "@/lib/fonts";
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
 import { headers } from "next/headers";
 import { Toaster } from "sonner";
+
 // @ts-ignore
 import "./globals.css";
-
-const dmSans = DM_Sans({
-  weight: ["400", "500"],
-  variable: "--font-dm-mono-sans",
-  subsets: ["latin-ext"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
