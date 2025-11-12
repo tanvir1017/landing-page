@@ -1,9 +1,10 @@
+import Container from "@/components/shared/container";
 import { SectionHero } from "@/components/style-componenets/section-heros";
 import AnalyticsOverviewCards from "./analytics-overview-card";
 
 export default function AnalyticsOverview() {
   return (
-    <main className="mt-10">
+    <div className="mt-10">
       {/* Header Section */}
       {/* <div className="px-8 py-12 border-b border-t border-gray-200">
         <div className="max-w-7xl mx-auto">
@@ -19,23 +20,25 @@ export default function AnalyticsOverview() {
       </div> */}
       {/* Main Content Section */}
       {/* <Container className="max-w-10/12"> */}
-      <SectionHero.SectionBody>
-        <SectionHero.Title>
-          The perfect foundation to kickstart any project.
-        </SectionHero.Title>
-        <SectionHero.Subtitle>
-          {" "}
-          A comprehensive UI kit — thoughtfully crafted with{" "}
-          <span className="font-medium text-[#374151]">
-            Auto Layout 5.0, smart variants, variables
-          </span>
-          , and built-in WCAG accessibility for a seamless design experience.
-        </SectionHero.Subtitle>
-      </SectionHero.SectionBody>
+      <Container>
+        <SectionHero.SectionBody>
+          <SectionHero.Title>
+            The perfect foundation to kickstart any project.
+          </SectionHero.Title>
+          <SectionHero.Subtitle>
+            {" "}
+            A comprehensive UI kit — thoughtfully crafted with{" "}
+            <span className="font-medium text-[#374151]">
+              Auto Layout 5.0, smart variants, variables
+            </span>
+            , and built-in WCAG accessibility for a seamless design experience.
+          </SectionHero.Subtitle>
+        </SectionHero.SectionBody>
+      </Container>
 
-      <div className="border-b relative">
+      <div className="border-t relative">
         <AnalyticsOverviewCards />
       </div>
-    </main>
+    </div>
   );
 }

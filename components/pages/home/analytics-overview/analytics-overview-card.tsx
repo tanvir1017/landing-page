@@ -4,38 +4,40 @@ import Image from "next/image";
 
 const AnalyticsOverviewCards = () => {
   return (
-    <Container className="bg-[url('/assets/section-gradient.png')] bg-no-repeat bg-size-[auto_650px] bg-position-[center_top_0rem] overflow-hidden">
-      <div className="py-[11px]">
-        <div className="grid grid-cols-3 gap-x-2.5">
-          {featureStats.map((feature, index) => (
-            <div
-              key={index}
-              className=" rounded-xl px-10 py-9 bg-white space-y-9"
-            >
-              <StyledButtons.Icons className="shadow-[0px_3px_6px_2px_rgba(0,0,0,0.1),0_1px_4px_rgba(0,0,0,0.15),inset_0_2px_4px_rgba(0,0,0,0.01)] rounded-[14px] size-14 p-0">
-                <Image
-                  src={feature.icon}
-                  width={36}
-                  height={36}
-                  alt="Icon"
-                  className=""
-                />
-              </StyledButtons.Icons>
-              <div className="space-y-4">
-                <h3 className="text-[#1F2937] text-[44px] leading-normal font-medium">
-                  {feature.number}
-                </h3>
-                <div className="space-y-3">
-                  <p className="text-[#374151] leading-8 text-2xl font-medium">
-                    {feature.title}
-                  </p>
-                  <p className="text-base leading-6 text-[#6B7280] tracking-[-0.2px]">
-                    {feature.description}
-                  </p>
+    <Container>
+      <div className="bg-[url('/assets/section-gradient.png')] bg-no-repeat bg-size-[auto_650px] bg-position-[center_top_0rem] overflow-hidden">
+        <div className="py-[11px]">
+          <div className="grid grid-cols-3 gap-x-2.5">
+            {featureStats.map((feature, index) => (
+              <div
+                key={index}
+                className=" rounded-xl px-10 py-9 bg-white space-y-9"
+              >
+                <StyledButtons.Icons className="shadow-[0px_3px_6px_2px_rgba(0,0,0,0.1),0_1px_4px_rgba(0,0,0,0.15),inset_0_2px_4px_rgba(0,0,0,0.01)] rounded-[14px] size-14 p-0">
+                  <Image
+                    src={feature.icon}
+                    width={36}
+                    height={36}
+                    alt="Icon"
+                    className=""
+                  />
+                </StyledButtons.Icons>
+                <div className="space-y-4">
+                  <h3 className="text-[#1F2937] text-[44px] leading-normal font-medium">
+                    {feature.number}
+                  </h3>
+                  <div className="space-y-3">
+                    <p className="text-[#374151] leading-8 text-2xl font-medium">
+                      {feature.title}
+                    </p>
+                    <p className="text-base leading-6 text-[#6B7280] tracking-[-0.2px]">
+                      {feature.description}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}{" "}
+            ))}{" "}
+          </div>
         </div>
       </div>
     </Container>

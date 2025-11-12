@@ -1,11 +1,13 @@
 import Navbar from "@/components/shared/navbar";
-import BackgroundTexture from "@/components/style-componenets/bg-texture";
+import PatternWrapper from "@/components/style-componenets/pattern-wrapper";
 import { auth } from "@/lib/auth";
 import { dmSans } from "@/lib/fonts";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { Toaster } from "sonner";
 
+import { T_MenuItem } from "@/types";
+import { getNavMenu } from "./actions/fetch-data";
 // @ts-ignore
 import "./globals.css";
 
@@ -23,13 +25,13 @@ export default async function RootLayout({
     headers: await headers(),
   });
 
+  const megaMenu = (await getNavMenu()) as T_MenuItem[];
+
   return (
     <html lang="en">
-      <body className={`${dmSans.className} antialiased relative`}>
-        {/* Background textures and gradients */}
-        <Navbar session={session} />
-        {children}
-        <BackgroundTexture />
+      <body className={`${dmSans.className} antialiased relative isolate`}>
+        <Navbar session={session} megaMenu={megaMenu} />
+        <PatternWrapper>{children}</PatternWrapper>
         <Toaster position="top-center" />
       </body>
     </html>

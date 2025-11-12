@@ -6,17 +6,17 @@ import HeroBadge from "./hero-badge";
 
 const HeroSection = () => {
   return (
-    <div className="relative bg-[url('/assets/hero-gradients.png')] bg-no-repeat bg-size-[auto_650px] bg-position-[center_top_0rem]  overflow-hidden h-screen min-h-screen">
+    <div className="relative bg-[url('/assets/hero-gradients.png')] bg-no-repeat bg-size-[auto_650px] bg-position-[center_top_-0.8rem] overflow-hidden">
       {/* <AnnouncementBar /> */}
 
       {/* Main Hero Content */}
-      <div className="relative flex flex-col items-center justify-center pt-16 px-4 md:px-8 mt-20">
+      <div className="relative flex flex-col items-center justify-center mt-20">
         <div className="flex flex-col items-center max-w-5xl mx-auto">
           {/* Badge */}
           <HeroBadge />
 
           {/* Title */}
-          <div>
+          <div className="mt-8">
             <h1 className="text-[52px] text-center font-semibold leading-[58px] tracking-[-1.5px] text-[#1F2937] text-balance">
               The Ultimate UI Library and Design System for Figma
             </h1>

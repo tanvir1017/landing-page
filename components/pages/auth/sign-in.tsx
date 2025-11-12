@@ -42,7 +42,6 @@ const SignInComponent = () => {
           },
         }
       );
-      console.log("🚀 ~ handleSignIn ~ data:", data);
     } catch (error) {
       setLoading(false);
       toast.error(`${(error as Error).message || "Sign in failed"}`);
@@ -51,16 +50,13 @@ const SignInComponent = () => {
 
   return (
     <div className="relative">
-      {/* Borders */}
-      <div className="h-[123px] border">
-        <div className="border pb-10"></div>
-      </div>
-      {/* Borders */}
-      <div className="">
+      <div className="pt-10">
         {/* Sign in page header */}
         <div className="border border-t-0 border-slate-200 flex items-center justify-center py-10">
-          <div className="max-w-md text-center  space-y-4">
-            <SiteLogo className="w-36!  mx-auto" />
+          <div className="max-w-md text-center space-y-4">
+            <Link href="/" className="block">
+              <SiteLogo className="w-36!  mx-auto" />
+            </Link>
             <h2 className="font-medium text-4xl leading-12 tracking-[-0.5px] text-center align-middle text-[#2E2E2E]">
               Sign In to your account
             </h2>

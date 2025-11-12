@@ -7,6 +7,8 @@ export const checkSessionAndRedirect = async (): Promise<boolean> => {
     headers: await headers(),
   });
 
-  if (session) true;
+  if (session) {
+    return true;
+  }
   return false;
 };

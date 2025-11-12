@@ -1,3 +1,6 @@
+import Container from "@/components/shared/container";
+import { SectionHero } from "@/components/style-componenets/section-heros";
+import { cn } from "@/lib/utils";
 import CustomizedSectionFeatures from "./customize-section-features";
 import SectionFeatures from "./section-features";
 import SectionHeader from "./section-header";
@@ -9,17 +12,24 @@ const WhyChooseUsSection = () => {
         <SectionHeader />
         <SectionFeatures />
       </SectionWrapper>
-      <SectionWrapper>
+      <SectionHero.Breaker />
+      <SectionWrapper className="mt-0">
         <CustomizedSectionFeatures />
       </SectionWrapper>
     </>
   );
 };
 
-const SectionWrapper = ({ children }: { children: React.ReactNode }) => {
+const SectionWrapper = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
   return (
-    <div className="mt-20 border-y">
-      <div className="container mx-auto">{children}</div>
+    <div className={cn(`mt-20 `, className)}>
+      <Container>{children}</Container>
     </div>
   );
 };

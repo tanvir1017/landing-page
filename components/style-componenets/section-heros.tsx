@@ -2,15 +2,13 @@ import { cn } from "@/lib/utils";
 
 const SectionBody = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="border-b border-t">
-      <div className="container mx-auto">
-        <div className="grid grid-cols-6">
-          <div className="col-span-4 space-y-[18px] pt-20 pb-10 pl-10">
-            {children}
-          </div>
-          {/* Making extra spaces */}
-          <div></div>
+    <div className="">
+      <div className="grid grid-cols-6">
+        <div className="col-span-4 space-y-[18px] pt-20 pb-10 pl-10 ">
+          {children}
         </div>
+        {/* Making extra spaces */}
+        <div></div>
       </div>
     </div>
   );
@@ -54,8 +52,23 @@ const Title = ({
   );
 };
 
+const Breaker = ({
+  children,
+  className,
+}: {
+  children?: React.ReactNode;
+  className?: string;
+}) => {
+  return (
+    <div className={cn("border-y h-20 bg-white z-10", className)}>
+      {children}
+    </div>
+  );
+};
+
 export const SectionHero = {
   SectionBody,
   Subtitle,
   Title,
+  Breaker,
 };

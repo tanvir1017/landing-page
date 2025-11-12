@@ -1,14 +1,15 @@
+import Container from "@/components/shared/container";
 import TestimonialsBento from "./bento-testimonials";
 import TestimonialHeader from "./testimonials-header";
 
 const TestimonialSection = () => {
   return (
-    <div className="mt-20 border-y">
-      <div className="container mx-auto">
+    <>
+      <Container>
         <TestimonialHeader />
         <TestimonialsBento />
-      </div>
-    </div>
+      </Container>
+    </>
   );
 };
 

@@ -5,7 +5,7 @@ import GoogleIcon from "@/components/assets/svgs/google";
 import SiteLogo from "@/components/assets/svgs/Logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { authClient } from "@/lib/auth-client";
+import { authClient, githubSignIn, googleSignIn } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
 import { Eye, EyeOff, LoaderPinwheel } from "lucide-react";
 import Link from "next/link";
@@ -53,10 +53,6 @@ const SignUpComponent = () => {
   return (
     <div className="relative">
       {/* Borders */}
-      <div className="h-[123px] border">
-        <div className="border pb-10"></div>
-      </div>
-      {/* Borders */}
       <div className="">
         {/* Sign in page header */}
         <div className="border border-t-0 border-slate-200 flex items-center justify-center py-10">
@@ -80,17 +76,22 @@ const SignUpComponent = () => {
           <div className="col-span-1">
             <div className="bg-[#F3F4F6] p-3 rounded-[34px]" id="sign-up-page">
               <div className="">
-                {/* OAuth Buttons */}
                 <div className="space-y-3 mb-6">
                   {/* Google Button */}
-                  <Button className="w-full h-12 rounded-full border-[0.5px] border-slate-200 bg-white hover:bg-slate-200 transition-colors flex items-center justify-center gap-3 text-slate-700 font-medium cursor-pointer ">
+                  <Button
+                    onClick={googleSignIn}
+                    className="w-full h-12 rounded-full border-[0.5px] border-slate-200 bg-white hover:bg-slate-200 transition-colors flex items-center justify-center gap-3 text-slate-700 font-medium cursor-pointer "
+                  >
                     <GoogleIcon />
                     Continue with Google
                   </Button>
 
                   {/* GitHub Button */}
-                  <Button className="w-full h-12 rounded-full border-[0.5px] border-slate-200 bg-white hover:bg-slate-200 transition-colors flex items-center justify-center gap-3 text-slate-700 font-medium cursor-pointer ">
-                    <GithubIcon className="w-6! h-6!" />
+                  <Button
+                    onClick={githubSignIn}
+                    className="w-full h-12 rounded-full border-[0.5px] border-slate-200 bg-white hover:bg-slate-200 transition-colors flex items-center justify-center gap-3 text-slate-700 font-medium cursor-pointer "
+                  >
+                    <GithubIcon />
                     Continue with Github
                   </Button>
                 </div>

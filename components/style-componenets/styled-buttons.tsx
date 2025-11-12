@@ -60,7 +60,3 @@ export const StyledButtons = {
   PrimaryCTA,
   PrimaryNeviBlue,
 };
-
-{
-  /* <div class="rounded-lg p-4 border text-black/10 dark:text-white/12.5 bg-[size:8px_8px] bg-top-left bg-[image:repeating-linear-gradient(315deg,currentColor_0,currentColor_1px,transparent_0,transparent_50%)]"></div>; */
-}

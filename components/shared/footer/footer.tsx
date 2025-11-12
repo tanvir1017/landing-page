@@ -5,6 +5,7 @@ import TwitterIcon from "@/components/assets/svgs/twitter-x";
 import { StyledButtons } from "@/components/style-componenets/styled-buttons";
 import { cn } from "@/lib/utils";
 import { Geist_Mono } from "next/font/google";
+import Container from "../container";
 import FooterProducts from "./footer-products";
 import SiteMapLink from "./sitemap-link";
 const geistMono = Geist_Mono({
@@ -14,39 +15,41 @@ const geistMono = Geist_Mono({
 });
 const Footer = () => {
   return (
-    <div className="mt-20 border-t mb-14">
-      <div className="container mx-auto ">
-        <div className="relative mb-[86px] mt-20 mx-10 ">
-          <div className="grid grid-cols-5 gap-4">
-            <div className="col-span-2">
-              <div className="mb-12 space-y-7">
-                <SiteLogo className="" />
-                <p className="text-[#6B7280] leading-6 max-w-md!">
-                  Browse and effortlessly copy-paste from over 800+ components
-                  and templates to craft high-quality, custom Tailwind CSS
-                  websites without coding.
-                </p>
-              </div>
-
-              <div className="space-x-1.5">
-                <StyledButtons.Icons className=" h-8 w-8 ">
-                  <TwitterIcon />
-                </StyledButtons.Icons>
-                <StyledButtons.Icons className=" h-8 w-8 ">
-                  <GithubIcon />
-                </StyledButtons.Icons>
-                <StyledButtons.Icons className="h-8 w-8">
-                  <DiscordIcon />
-                </StyledButtons.Icons>
-              </div>
+    // <div className="border-t mb-14">
+    //   <div className="container mx-auto ">
+    <Container>
+      <div className="relative mb-[86px] mt-20 mx-10 ">
+        <div className="grid grid-cols-5 gap-4">
+          <div className="col-span-2">
+            <div className="mb-12 space-y-7">
+              <SiteLogo className="" />
+              <p className="text-[#6B7280] leading-6 max-w-md!">
+                Browse and effortlessly copy-paste from over 800+ components and
+                templates to craft high-quality, custom Tailwind CSS websites
+                without coding.
+              </p>
             </div>
-            <SiteMapLink />
+
+            <div className="space-x-1.5">
+              <StyledButtons.Icons className=" h-8 w-8 ">
+                <TwitterIcon />
+              </StyledButtons.Icons>
+              <StyledButtons.Icons className=" h-8 w-8 ">
+                <GithubIcon />
+              </StyledButtons.Icons>
+              <StyledButtons.Icons className="h-8 w-8">
+                <DiscordIcon />
+              </StyledButtons.Icons>
+            </div>
           </div>
+          <SiteMapLink />
         </div>
-        <FooterProducts />
-        <CopyRightText />
       </div>
-    </div>
+      <FooterProducts />
+      <CopyRightText />
+    </Container>
+    //   </div>
+    // </div>
   );
 };
 

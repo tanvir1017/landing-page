@@ -8,7 +8,7 @@ const FooterProducts = () => {
         <p className="leading-6 text-[#374151] ">Explore our others products</p>
       </div>
 
-      <div className="grid grid-cols-6 align-middle items-center">
+      <div className="grid grid-cols-6">
         {productsSrc.map((product, index) => (
           <div
             key={product.id}

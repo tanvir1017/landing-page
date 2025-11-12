@@ -1,5 +1,4 @@
 "use client";
-import { signOutAction } from "@/app/actions/auth";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,11 +7,13 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { logout } from "@/lib/auth-client";
 import { SessionContext } from "@/types";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import LogoutIcon from "../assets/svgs/logout";
 import UserIcon from "../assets/svgs/user-icon";
 import { StyledButtons } from "../style-componenets/styled-buttons";
@@ -23,13 +24,25 @@ export function ProfileDropDown({
   session: SessionContext | null;
 }) {
   const router = useRouter();
-  /*   <Button
-          className=" hover:bg-[#0f172a] py-6 px-4 bg-[#0f172a] text-white rounded-xl
-                [background:radial-gradient(at_top,rgba(255,255,255,0.08)_0%,transparent_70%)_inset,#0f172a]"
-        >
-          <Image src="/assets/user.svg" alt="user" width={24} height={24} />{" "}
-          <span>Account</span> <ChevronDown />
-        </Button> */
+
+  const handleSignOut = async () => {
+    toast.promise(
+      // Pass the promise here
+      async () => {
+        // Call the logout function
+        const response = await logout();
+        // Refresh the router (useful for updating UI after sign-out)
+        router.refresh();
+        return response; // Return the response if needed for success
+      },
+      {
+        loading: "Signing out, please wait...",
+        success: "Signed out successfully! Redirecting...",
+        error: (error) => `Error signing out: ${error.message || error}`, // Capture and display the actual error message
+      }
+    );
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -86,7 +99,7 @@ export function ProfileDropDown({
         <DropdownMenuSeparator className="my-2 bg-[#EDEDED]" />
         {session ? (
           <DropdownMenuItem
-            onClick={signOutAction}
+            onClick={handleSignOut}
             className="cursor-pointer  rounded-[14px] pl-3.5 pr-6 py-3.5 text-title-text text-base font-medium leading-6 tracking-[-0.2px] bg-white hover:bg-[#F3F4F6] gap-x-3"
           >
             <LogoutIcon className="w-6! h-6!" />
