@@ -2,7 +2,7 @@ import DiscordIcon from "@/components/assets/svgs/discord";
 import GithubIcon from "@/components/assets/svgs/github";
 import SiteLogo from "@/components/assets/svgs/Logo";
 import TwitterIcon from "@/components/assets/svgs/twitter-x";
-import { Button } from "@/components/ui/button";
+import { StyledButtons } from "@/components/style-componenets/styled-buttons";
 import { cn } from "@/lib/utils";
 import { Geist_Mono } from "next/font/google";
 import FooterProducts from "./footer-products";
@@ -16,7 +16,7 @@ const Footer = () => {
   return (
     <div className="mt-20 border-t mb-14">
       <div className="container mx-auto ">
-        <div className="relative mb-[86px] mt-20 mx-10 border">
+        <div className="relative mb-[86px] mt-20 mx-10 ">
           <div className="grid grid-cols-5 gap-4">
             <div className="col-span-2">
               <div className="mb-12 space-y-7">
@@ -29,15 +29,15 @@ const Footer = () => {
               </div>
 
               <div className="space-x-1.5">
-                <Button className="bg-white border py-4 px-3 hover:bg-inherit cursor-pointer">
+                <StyledButtons.Icons className=" h-8 w-8 ">
                   <TwitterIcon />
-                </Button>
-                <Button className="bg-white border py-4 px-3 hover:bg-inherit cursor-pointer">
+                </StyledButtons.Icons>
+                <StyledButtons.Icons className=" h-8 w-8 ">
                   <GithubIcon />
-                </Button>
-                <Button className="bg-white border py-4 px-3 hover:bg-inherit cursor-pointer">
+                </StyledButtons.Icons>
+                <StyledButtons.Icons className="h-8 w-8">
                   <DiscordIcon />
-                </Button>
+                </StyledButtons.Icons>
               </div>
             </div>
             <SiteMapLink />

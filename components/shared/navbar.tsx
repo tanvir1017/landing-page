@@ -7,6 +7,8 @@ import GithubIcon from "../assets/svgs/github";
 import SiteLogo from "../assets/svgs/Logo";
 import TwitterIcon from "../assets/svgs/twitter-x";
 import { ProfileDropDown } from "../dashboard/profile-dropdown";
+
+import { StyledButtons } from "../style-componenets/styled-buttons";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Navigation } from "./navigation";
@@ -34,15 +36,15 @@ const Navbar = ({ session }: { session: SessionContext | null }) => {
                 </div>
 
                 <div className="space-x-1.5">
-                  <Button className="bg-white border py-4 px-3 hover:bg-inherit cursor-pointer">
+                  <StyledButtons.Icons className=" h-8 w-8 ">
                     <TwitterIcon />
-                  </Button>
-                  <Button className="bg-white border py-4 px-3 hover:bg-inherit cursor-pointer">
+                  </StyledButtons.Icons>
+                  <StyledButtons.Icons className=" h-8 w-8 ">
                     <GithubIcon />
-                  </Button>
-                  <Button className="bg-white border py-4 px-3 hover:bg-inherit cursor-pointer">
+                  </StyledButtons.Icons>
+                  <StyledButtons.Icons className=" h-8 w-8 ">
                     <DiscordIcon />
-                  </Button>
+                  </StyledButtons.Icons>
                 </div>
 
                 <div className="flex items-center space-x-4">

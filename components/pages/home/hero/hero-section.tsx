@@ -1,3 +1,4 @@
+import { StyledButtons } from "@/components/style-componenets/styled-buttons";
 import { Button } from "@/components/ui/button";
 import { ChevronRightIcon } from "lucide-react";
 import Image from "next/image";
@@ -48,10 +49,14 @@ const HeroSection = () => {
             </Button>
 
             {/* Buy Now Button */}
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-6 py-3 h-auto font-medium flex items-center gap-2 shadow-lg hover:shadow-xl transition-shadow">
-              Buy now <span>- One-time</span>
-              <ChevronRightIcon className="w-4 h-4" />
-            </Button>
+            {/* <StyledButtons.PrimaryCTA className="pl-[18px] pr-3 py-[11px] h-10 w-[191.64px] "> */}
+            <StyledButtons.PrimaryCTA className="pl-[18px] pr-3 py-[11px] h-10 w-[191.64px] cursor-pointer">
+              Buy now{" "}
+              <span className=" text-[rgba(255, 255,255,0.72)] flex space-x-1 items-center">
+                <span>- One-time</span>
+                <ChevronRightIcon className="w-4 h-4" />
+              </span>
+            </StyledButtons.PrimaryCTA>
           </div>
         </div>
 

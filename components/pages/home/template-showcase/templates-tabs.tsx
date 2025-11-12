@@ -1,3 +1,4 @@
+import { StyledButtons } from "@/components/style-componenets/styled-buttons";
 import { Button } from "@/components/ui/button";
 import { ChevronRightIcon } from "lucide-react";
 import Image from "next/image";
@@ -55,10 +56,10 @@ const TemplateTabs = () => {
                 </Button>
 
                 {/* Buy Now Button */}
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-6 py-3 h-auto font-medium flex items-center gap-2 shadow-lg hover:shadow-xl transition-shadow">
+                <StyledButtons.PrimaryCTA>
                   Buy now <span>- One-time</span>
                   <ChevronRightIcon className="w-4 h-4" />
-                </Button>
+                </StyledButtons.PrimaryCTA>
               </div>
             </div>
           </div>
