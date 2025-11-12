@@ -4,28 +4,39 @@ import Image from "next/image";
 
 const AnalyticsOverviewCards = () => {
   return (
-    <Container className="container border py-2 bg-linear-to-br from-indigo-50 to-purple-50">
-      <div className="grid grid-cols-3 gap-x-2.5">
-        {featureStats.map((feature, index) => (
-          <div key={index} className="border rounded-xl p-8 bg-white">
-            <StyledButtons.Icons className="shadow-[0px_0px_0px_2px_rgba(0,0,0,0.1),0_1px_4px_rgba(0,0,0,0.15),inset_0_2px_4px_rgba(0,0,0,0.01)] rounded-[18px] size-16">
-              <Image
-                src={feature.icon}
-                width={36}
-                height={36}
-                alt="Icon"
-                className=""
-              />
-            </StyledButtons.Icons>
-            <h3 className="text-3xl font-bold text-gray-900 mb-2">
-              {feature.number}
-            </h3>
-            <p className="text-gray-700 font-medium mb-3">{feature.title}</p>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              {feature.description}
-            </p>
-          </div>
-        ))}{" "}
+    <Container className="bg-[url('/assets/section-gradient.png')] bg-no-repeat bg-size-[auto_650px] bg-position-[center_top_0rem] overflow-hidden">
+      <div className="py-[11px]">
+        <div className="grid grid-cols-3 gap-x-2.5">
+          {featureStats.map((feature, index) => (
+            <div
+              key={index}
+              className=" rounded-xl px-10 py-9 bg-white space-y-9"
+            >
+              <StyledButtons.Icons className="shadow-[0px_3px_6px_2px_rgba(0,0,0,0.1),0_1px_4px_rgba(0,0,0,0.15),inset_0_2px_4px_rgba(0,0,0,0.01)] rounded-[14px] size-14 p-0">
+                <Image
+                  src={feature.icon}
+                  width={36}
+                  height={36}
+                  alt="Icon"
+                  className=""
+                />
+              </StyledButtons.Icons>
+              <div className="space-y-4">
+                <h3 className="text-[#1F2937] text-[44px] leading-normal font-medium">
+                  {feature.number}
+                </h3>
+                <div className="space-y-3">
+                  <p className="text-[#374151] leading-8 text-2xl font-medium">
+                    {feature.title}
+                  </p>
+                  <p className="text-base leading-6 text-[#6B7280] tracking-[-0.2px]">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}{" "}
+        </div>
       </div>
     </Container>
   );

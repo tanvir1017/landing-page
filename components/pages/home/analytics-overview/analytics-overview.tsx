@@ -33,7 +33,7 @@ export default function AnalyticsOverview() {
         </SectionHero.Subtitle>
       </SectionHero.SectionBody>
 
-      <div className="border-b mb-10">
+      <div className="border-b relative">
         <AnalyticsOverviewCards />
       </div>
     </main>
