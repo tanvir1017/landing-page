@@ -1,5 +1,6 @@
 import FigmaIcon from "@/components/assets/svgs/figma";
 import { StyledButtons } from "@/components/style-componenets/styled-buttons";
+import { cn } from "@/lib/utils";
 import { ChevronRightIcon } from "lucide-react";
 import Image from "next/image";
 
@@ -7,29 +8,13 @@ const TemplateTabs = () => {
   return (
     <div className="bg-[#F3F4F6]">
       <div className="py-5 px-10">
-        <div className="tabs-btns space-x-1">
-          {/* <StyledButtons.Icons className="h-[34px] w-[120px] py-[7px] pl-2.5 pr-3 text-[#1F2937] rounded-full"> */}
-          <StyledButtons.Icons className="bg-white hover:bg-white cursor-pointer shadow-[0px_0px_0px_1px_rgba(0,0,0,0.1),0_1px_4px_rgba(0,0,0,0.15),inset_0_2px_4px_rgba(0,0,0,0.01)] transition-all duration-75 rounded-full text-[#1F2937] font-medium leading-6 tracking-[-0.2px]">
-            All Templates
-          </StyledButtons.Icons>
-
-          <StyledButtons.Icons className="bg-[#F3F4F6] hover:shadow-[0px_0px_0px_1px_rgba(0,0,0,0.1),0_1px_4px_rgba(0,0,0,0.15),inset_0_2px_4px_rgba(0,0,0,0.01)] transition-all cursor-pointer shadow-none border-transparent rounded-full  border text-[#374151] hover:text-[#1F2937] font-medium leading-6 tracking-[-0.2px] ">
-            Agency
-          </StyledButtons.Icons>
-          <StyledButtons.Icons className="bg-[#F3F4F6] hover:shadow-[0px_0px_0px_1px_rgba(0,0,0,0.1),0_1px_4px_rgba(0,0,0,0.15),inset_0_2px_4px_rgba(0,0,0,0.01)] transition-all cursor-pointer shadow-none border-transparent rounded-full  border text-[#374151] hover:text-[#1F2937] font-medium leading-6 tracking-[-0.2px] ">
-            Business
-          </StyledButtons.Icons>
-          <StyledButtons.Icons className="bg-[#F3F4F6] hover:shadow-[0px_0px_0px_1px_rgba(0,0,0,0.1),0_1px_4px_rgba(0,0,0,0.15),inset_0_2px_4px_rgba(0,0,0,0.01)] transition-all cursor-pointer shadow-none border-transparent rounded-full  border text-[#374151] hover:text-[#1F2937] font-medium leading-6 tracking-[-0.2px] ">
-            E-Commerce
-          </StyledButtons.Icons>
-          <StyledButtons.Icons className="bg-[#F3F4F6] hover:shadow-[0px_0px_0px_1px_rgba(0,0,0,0.1),0_1px_4px_rgba(0,0,0,0.15),inset_0_2px_4px_rgba(0,0,0,0.01)] transition-all cursor-pointer shadow-none border-transparent rounded-full  border text-[#374151] hover:text-[#1F2937] font-medium leading-6 tracking-[-0.2px] ">
-            Dashboard
-          </StyledButtons.Icons>
+        <div className="flex items-center flex-wrap md:justify-start justify-center space-y-1 space-x-1">
+          <TabButtons />
         </div>
       </div>
 
       <div className="relative">
-        <div className="grid grid-cols-3 p-10 gap-9 relative pb-[140px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 p-10 gap-9 relative pb-[140px]">
           {cardData.map((card) => (
             <div key={card.id}>
               <Image src={card.imgSrc} alt="card" width={508} height={297} />
@@ -42,7 +27,7 @@ const TemplateTabs = () => {
 
           <div className="absolute inset-x-0 bottom-0 h-64 w-full bg-linear-to-t from-[#F3F4F6] via-white/90 to-white/20 opacity-90 pointer-events-none">
             <div className="relative h-full w-full flex justify-center">
-              <div className="flex items-end justify-center  flex-col sm:flex-row gap-4 mb-16 ">
+              <div className="flex flex-col md:flex-row items-end justify-center  gap-4 mb-16 ">
                 <StyledButtons.Icons className="cursor-pointer h-11! w-[191.64px] px-3.5">
                   <FigmaIcon className="size-6" />{" "}
                   <span className="text-[#1F2937] font-medium text-sm leading-5 tracking-[-0.2px] flex items-center">
@@ -72,6 +57,36 @@ const TemplateTabs = () => {
     </div>
   );
 };
+
+const TabButtons = () => {
+  return (
+    <>
+      {tabItems.map((item, index) => (
+        <StyledButtons.Icons
+          key={index}
+          className={cn(
+            "transition-all duration-75 cursor-pointer rounded-full font-medium leading-6 tracking-[-0.2px]",
+            "hover:shadow-[0px_0px_0px_1px_rgba(0,0,0,0.1),0_1px_4px_rgba(0,0,0,0.15),inset_0_2px_4px_rgba(0,0,0,0.01)]",
+            "shadow-none border-transparent border",
+            "bg-[#F3F4F6]",
+            "text-[#374151]",
+            index === 0 && "text-[#1F2937]"
+          )}
+        >
+          {item.label}
+        </StyledButtons.Icons>
+      ))}
+    </>
+  );
+};
+
+const tabItems = [
+  { label: "All Templates" },
+  { label: "Agency" },
+  { label: "Business" },
+  { label: "E-Commerce" },
+  { label: "Dashboard" },
+];
 
 const cardData = [
   {

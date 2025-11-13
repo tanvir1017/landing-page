@@ -9,7 +9,7 @@ const NewsLetter = () => {
   return (
     <Container className="bg-[#030712]">
       <div className="py-20">
-        <div className="grid grid-cols-5 border-y border-[#1A1E28]">
+        <div className="grid grid-cols-1 md:grid-cols-5 border-y border-[#1A1E28]">
           <div className="col-span-1 border-r border-[#1A1E28] flex items-center justify-center">
             <h4
               className={cn(

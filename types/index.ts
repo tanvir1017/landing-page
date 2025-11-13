@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type T_MenuColumn = {
   title: string;
   description: string;
@@ -49,3 +51,8 @@ export interface SessionContext {
   session: Session | null;
   user: User | null;
 }
+
+export type T_FeatureItem = {
+  Icon: ReactNode;
+  description: string;
+};

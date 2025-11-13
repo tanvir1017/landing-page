@@ -15,11 +15,9 @@ const geistMono = Geist_Mono({
 });
 const Footer = () => {
   return (
-    // <div className="border-t mb-14">
-    //   <div className="container mx-auto ">
     <Container>
-      <div className="relative mb-[86px] mt-20 mx-10 ">
-        <div className="grid grid-cols-5 gap-4">
+      <div className="relative mb-[86px] mt-20 md:mx-10 mx-2 ">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
           <div className="col-span-2">
             <div className="mb-12 space-y-7">
               <SiteLogo className="" />
