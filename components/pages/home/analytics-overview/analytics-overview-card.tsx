@@ -6,8 +6,8 @@ const AnalyticsOverviewCards = () => {
   return (
     <Container>
       <div className="bg-[url('/assets/section-gradient.png')] bg-no-repeat bg-size-[auto_650px] bg-position-[center_top_0rem] overflow-hidden">
-        <div className="py-[11px]">
-          <div className="grid grid-cols-3 gap-x-2.5">
+        <div className="py-1.5  bg-red-400 md:py-[11px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-1.5  md:gap-x-2.5">
             {featureStats.map((feature, index) => (
               <div
                 key={index}

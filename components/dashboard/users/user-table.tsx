@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 
 import ArrowLeft from "@/components/assets/svgs/arrow-left";

@@ -1,4 +1,4 @@
-import Navbar from "@/components/shared/navbar";
+import Navbar from "@/components/shared/navbar/navbar";
 import PatternWrapper from "@/components/style-componenets/pattern-wrapper";
 import { auth } from "@/lib/auth";
 import { dmSans } from "@/lib/fonts";
