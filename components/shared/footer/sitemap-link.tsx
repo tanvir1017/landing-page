@@ -6,21 +6,21 @@ const SiteMapLink = () => {
   return (
     <>
       {footerSitemap.map((section) => (
-        <div key={section.section}>
+        <div key={section.section} className="mt-7">
           <h3
             className={cn(
-              "font-medium text-[#6B7280] mb-7",
+              "md:font-medium font-bold text-[#6B7280] md:mb-7 mb-3",
               geistMono.className
             )}
           >
             {section.section}
           </h3>
-          <ul className="space-y-[18px] flex flex-col items-start">
+          <ul className="md:space-y-[18px] space-y-3 flex flex-col items-start">
             {section.links.map((link, i) => (
               <li key={link.id}>
                 <Link
                   href={link.href}
-                  className={cn("text-[#374151] leading-6 transition ")}
+                  className={cn("text-[#374151] leading-6 transition")}
                 >
                   {link.text}
                 </Link>

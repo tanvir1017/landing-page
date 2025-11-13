@@ -12,7 +12,7 @@ const SectionWrapper = ({
   return (
     <div
       className={cn(
-        "mt-20 grid md:grid-flow-col grid-flow-row justify-items-stretch items-center space-x-20 md:p-0 p-4",
+        "mt-10 grid grid-flow-row md:grid-flow-col justify-items-stretch items-center space-x-20 md:p-0 p-4",
         className
       )}
     >
@@ -64,9 +64,15 @@ const SectionTitle = ({
   );
 };
 
-const FeatureSection = ({ items }: { items: T_FeatureItem[] }) => {
+const FeatureSection = ({
+  items,
+  className,
+}: {
+  items: T_FeatureItem[];
+  className?: string;
+}) => {
   return (
-    <div className="mt-8 space-y-6  md:max-w-xl max-w-full">
+    <div className={cn("mt-8 space-y-6 md:max-w-xl max-w-full", className)}>
       {items.map(({ Icon, description }, index) => (
         <div
           key={index}

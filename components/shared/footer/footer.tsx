@@ -53,11 +53,11 @@ const Footer = () => {
 
 function CopyRightText() {
   return (
-    <div className="bg-[#F3F4F6] py-4 px-10 text-[#6B7280] text-sm leading-5 tracking-[-0.2px] border-y">
-      <p className={cn("  font-medium", geistMono.className)}>
+    <div className="bg-[#F3F4F6] py-4 md:px-10 px-3 md:space-y-2 space-y-3 text-[#6B7280] text-sm leading-5 tracking-[-0.2px] border-y">
+      <p className={cn(" font-medium", geistMono.className)}>
         © Copyright 2025 - All rights reserved.
       </p>
-      <p>
+      <p className="">
         The Tailwind name and logos are trademarks of Tailwind Labs Inc. is not
         affiliated with, associated with, or part of Tailwind Labs or the
         official Tailwind CSS.

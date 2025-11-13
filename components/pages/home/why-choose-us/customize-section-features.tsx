@@ -29,7 +29,7 @@ const customizeFeatures: T_FeatureItem[] = [
 const CustomizedSectionFeatures = () => {
   return (
     <div className="bg-[#F3F4F6]">
-      <FeaturesSection.SectionWrapper className="">
+      <FeaturesSection.SectionWrapper className="mt-0">
         <FeaturesSection.SectionContent className="">
           <FeaturesSection.SectionImage className="p-0 md:p-4">
             <Image
@@ -47,24 +47,20 @@ const CustomizedSectionFeatures = () => {
           </FeaturesSection.SectionTitle>
 
           <FeaturesSection.FeatureSection items={customizeFeatures} />
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col md:flex-row items-center space-x-0 md:space-x-3 mt-11">
-            {/* Preview Figma Button */}
-            <StyledButtons.Icons className="cursor-pointer h-11! w-[191.64px] px-3.5">
+          <div className="flex items-center justify-center md:justify-start space-x-3 mt-11 ">
+            <StyledButtons.Icons className="cursor-pointer h-11! md:w-[191.64px] w-[140px] px-3.5">
               <FigmaIcon className="size-6" />{" "}
               <span className="text-[#1F2937] flex items-center">
                 Preview{" "}
-                <span className="flex items-center text-black/70 ml-0.5">
+                <span className="md:flex hidden items-center text-black/70 ml-0.5 ">
                   - Figma <ChevronRightIcon className="w-4 h-4" />
                 </span>{" "}
               </span>
             </StyledButtons.Icons>
 
-            {/* Buy Now Button */}
-            <StyledButtons.PrimaryNeviBlue className="">
+            <StyledButtons.PrimaryNeviBlue className="md:w-[191.64px] w-[140px] h-11! px-3.5">
               Buy now{" "}
-              <span className="space-x-1 flex items-center justify-center text-white/75">
+              <span className="space-x-1 md:flex hidden items-center justify-center text-white/75">
                 <span>- One-time</span>
                 <ChevronRightIcon className="w-4 h-4" />
               </span>

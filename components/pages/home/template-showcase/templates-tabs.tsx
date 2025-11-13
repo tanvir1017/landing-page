@@ -7,14 +7,14 @@ import Image from "next/image";
 const TemplateTabs = () => {
   return (
     <div className="bg-[#F3F4F6]">
-      <div className="py-5 px-10">
+      <div className="py-5 md:px-10 md:border-b border-b-0">
         <div className="flex items-center flex-wrap md:justify-start justify-center space-y-1 space-x-1">
           <TabButtons />
         </div>
       </div>
 
       <div className="relative">
-        <div className="grid grid-cols-1 md:grid-cols-3 p-10 gap-9 relative pb-[140px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 md:px-10 md:pt-10 md:pb-[140px] p-3 gap-9 relative ">
           {cardData.map((card) => (
             <div key={card.id}>
               <Image src={card.imgSrc} alt="card" width={508} height={297} />
@@ -26,27 +26,23 @@ const TemplateTabs = () => {
           ))}
 
           <div className="absolute inset-x-0 bottom-0 h-64 w-full bg-linear-to-t from-[#F3F4F6] via-white/90 to-white/20 opacity-90 pointer-events-none">
-            <div className="relative h-full w-full flex justify-center">
-              <div className="flex flex-col md:flex-row items-end justify-center  gap-4 mb-16 ">
-                <StyledButtons.Icons className="cursor-pointer h-11! w-[191.64px] px-3.5">
+            <div className="relative h-full w-full flex justify-center mt-10 ">
+              <div className="flex items-center justify-center md:justify-start space-x-3 mt-11 ">
+                <StyledButtons.Icons className="cursor-pointer h-11! md:w-[191.64px] w-[140px] px-3.5">
                   <FigmaIcon className="size-6" />{" "}
-                  <span className="text-[#1F2937] font-medium text-sm leading-5 tracking-[-0.2px] flex items-center">
+                  <span className="text-[#1F2937] flex items-center">
                     Preview{" "}
-                    <span className="flex items-center">
-                      <span className="text-[#6B7280] ml-1">- Figma</span>{" "}
-                      <ChevronRightIcon className="w-4 h-4" />
+                    <span className="md:flex hidden items-center text-black/70 ml-0.5 ">
+                      - Figma <ChevronRightIcon className="w-4 h-4" />
                     </span>{" "}
                   </span>
                 </StyledButtons.Icons>
 
-                {/* Buy Now Button */}
-                <StyledButtons.PrimaryNeviBlue className="">
-                  <span className="font-medium text-sm leading-5 tracking-[-0.2px] flex items-center">
-                    Browse All
-                    <span className="space-x-1 flex items-center justify-center text-white/75 font-medium text-sm leading-5 tracking-[-0.2px] ml-1">
-                      <span>- Templates</span>
-                      <ChevronRightIcon className="w-4 h-4" />
-                    </span>
+                <StyledButtons.PrimaryNeviBlue className="md:w-[191.64px] w-[140px] h-11! px-3.5">
+                  Buy now{" "}
+                  <span className="space-x-1 md:flex hidden items-center justify-center text-white/75">
+                    <span>- One-time</span>
+                    <ChevronRightIcon className="w-4 h-4" />
                   </span>
                 </StyledButtons.PrimaryNeviBlue>
               </div>

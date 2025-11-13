@@ -1,21 +1,26 @@
+"use client";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 const FooterProducts = () => {
+  const isMobile = useIsMobile();
   return (
     <div>
-      <div className="mb-5 ml-10">
+      <div className="mb-5 ml-10 text-center md:text-left">
         <p className="leading-6 text-[#374151] ">Explore our others products</p>
       </div>
 
-      <div className="grid grid-cols-6">
+      <div className="grid md:grid-cols-6 grid-cols-3">
         {productsSrc.map((product, index) => (
           <div
             key={product.id}
             className={cn(
-              "px-10 py-5.5 border-t flex items-center justify-center",
+              "md:px-10 px-2 py-5.5 border-t flex items-center justify-center ",
               {
-                "border-r": index !== productsSrc.length - 1,
+                "md:border-r": index !== productsSrc.length - 1,
+                "border-r": isMobile,
+                "md:border-l-0 border-l": index === 0 || index === 3,
               }
             )}
           >
