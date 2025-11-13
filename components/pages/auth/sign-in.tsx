@@ -8,6 +8,8 @@ import { authClient, githubSignIn, googleSignIn } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
 import { Eye, EyeOff, LoaderPinwheel } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -16,6 +18,7 @@ const SignInComponent = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,7 +36,7 @@ const SignInComponent = () => {
           onSuccess: (ctx) => {
             setLoading(false);
             toast.success("Sign in successful");
-            //redirect("/");
+            router.push("/dashboard/statics");
           },
           onError: (ctx) => {
             // display the error message
@@ -55,7 +58,7 @@ const SignInComponent = () => {
         <div className="border border-t-0 border-slate-200 flex items-center justify-center py-10">
           <div className="max-w-md text-center space-y-4 px-4 md:px-0">
             <Link href="/" className="flex items-center justify-center">
-              <SiteLogo className="w-36! " />
+              <SiteLogo className="w-36!" />
             </Link>
             <h2 className="font-medium text-2xl md:text-4xl leading-8 md:leading-12 tracking-[-0.5px] text-center align-middle text-[#2E2E2E]">
               Sign In to your account
