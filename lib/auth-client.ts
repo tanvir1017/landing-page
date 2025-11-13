@@ -2,7 +2,10 @@ import { createAuthClient } from "better-auth/client";
 import { redirect } from "next/navigation";
 
 export const authClient = createAuthClient({
-  baseURL: "https://tanvir1017-pimjo.vercel.app",
+  baseURL:
+    process.env.NODE_ENV === "production"
+      ? process.env.NEXT_PUBLIC_APP_URL_PROD
+      : process.env.NEXT_PUBLIC_APP_URL,
 });
 export const googleSignIn = async () => {
   const data = await authClient.signIn.social({

@@ -6,7 +6,7 @@ export const auth = betterAuth({
   database: new Pool({
     connectionString: process.env.NEXT_PUBLIC_NEON_CONNECTION_STRING,
   }),
-  baseURL: process.env.BETTER_AUTH_URL || "http://localhost:3000",
+  baseURL: process.env.BETTER_AUTH_URL,
 
   trustedOrigins: [
     "http://localhost:3000",
