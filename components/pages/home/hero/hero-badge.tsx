@@ -43,16 +43,16 @@ export default function HeroBadge() {
       </div>
 
       {/* Text */}
-      <div className="flex items-center space-x-2 ">
+      <div className="flex items-center md:space-x-2  space-x-1">
         <span
           className={cn(
-            "text-[#6B7280] text-sm font-medium leading-5 tracking-[-0.2px]",
+            "text-[#6B7280] md:text-sm text-xs font-normal md:font-medium leading-5 tracking-[-0.2px]",
             geistMono.className
           )}
         >
           Used by 65,000+ Designers worldwide{" "}
         </span>
-        <StyledButtons.Icons className="shadow-[0px_0px_0px_1px_rgba(0,0,0,0.09),0_1px_4px_rgba(0,0,0,0.15),inset_0_2px_4px_rgba(0,0,0,0.01)] rounded-full w-9 h-[30px] px-1.5">
+        <StyledButtons.Icons className="shadow-[0px_0px_0px_1px_rgba(0,0,0,0.09),0_1px_4px_rgba(0,0,0,0.15),inset_0_2px_4px_rgba(0,0,0,0.01)] rounded-full w-9 h-[30px] px-1.5 md:flex items-center justify-center hidden">
           <ChevronRight className="inline w-4 h-4  text-black" />
         </StyledButtons.Icons>
       </div>

@@ -5,13 +5,13 @@ import Image from "next/image";
 const AnalyticsOverviewCards = () => {
   return (
     <Container>
-      <div className="bg-[url('/assets/section-gradient.png')] bg-no-repeat bg-size-[auto_650px] bg-position-[center_top_0rem] overflow-hidden">
-        <div className="py-1.5  bg-red-400 md:py-[11px]">
+      <div className="bg-[url('/assets/section-gradient.png')] md:bg-no-repeat bg-size-[auto_650px] bg-position-[center_top_0rem] overflow-hidden md:px-0 px-1.5">
+        <div className="py-1.5 md:py-[11px]">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-1.5  md:gap-x-2.5">
             {featureStats.map((feature, index) => (
               <div
                 key={index}
-                className=" rounded-xl px-10 py-9 bg-white space-y-9"
+                className=" rounded-xl md:px-10 px-5 py-9 bg-white space-y-9 md:border-none border border-[#E5E7EB] md:shadow-none shadow-[0px_1px_2px_rgba(0,0,0,0.05)]"
               >
                 <StyledButtons.Icons className="shadow-[0px_3px_6px_2px_rgba(0,0,0,0.1),0_1px_4px_rgba(0,0,0,0.15),inset_0_2px_4px_rgba(0,0,0,0.01)] rounded-[14px] size-14 p-0">
                   <Image

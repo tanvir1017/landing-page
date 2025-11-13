@@ -8,7 +8,7 @@ import SectionHeader from "./section-header";
 const WhyChooseUsSection = () => {
   return (
     <>
-      <SectionWrapper>
+      <SectionWrapper className="mt-0">
         <SectionHeader />
         <SectionFeatures />
       </SectionWrapper>

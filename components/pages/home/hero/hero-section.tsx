@@ -16,15 +16,15 @@ const HeroSection = () => {
           <HeroBadge />
 
           {/* Title */}
-          <div className="mt-8">
-            <h1 className="text-[52px] text-center font-semibold leading-[58px] tracking-[-1.5px] text-[#1F2937] text-balance">
+          <div className="md:mt-8 mt-0 px-2 md:px-0">
+            <h1 className="md:text-[52px] text-[32px] text-center font-semibold md:leading-[58px] leading-[42px] tracking-[-1.5px] text-[#1F2937] text-balance">
               The Ultimate UI Library and Design System for Figma
             </h1>
           </div>
 
           {/* SUb title */}
-          <div className="max-w-2xl mt-[18px]">
-            <p className="text-[18px]  font-normal leading-7 text-[#6B7280] tracking-[-0.2px] text-center">
+          <div className="md:max-w-2xl max-w-full mt-[18px] px-2 md:px-0">
+            <p className="md:text-[18px] text-base font-normal md:leading-7 leading-[22px] text-[#6B7280] tracking-[-0.2px] text-center">
               A complete toolkit for modern designers — 600+ functional Figma UI
               components for landing pages, e-commerce, dashboards, and more.
               Boost your workflow and creativity with our product.
@@ -56,12 +56,21 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <div className="mt-20">
+        <div className="mt-10 md:mt-20 md:px-0 px-2 ">
+          <Image
+            src="/assets/figma-web-view.jpg"
+            alt="hero"
+            width={400}
+            height={100}
+            className="md:hidden block "
+          />
+
           <Image
             src="/assets/figma-web-view.jpg"
             alt="hero"
             width={1500}
             height={100}
+            className="md:block hidden"
           />
         </div>
       </div>
