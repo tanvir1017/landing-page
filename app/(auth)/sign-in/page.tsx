@@ -4,7 +4,6 @@ import { redirect } from "next/navigation";
 
 const SignInPage = async () => {
   const isLoggedIn = await checkSessionAndRedirect();
-  console.log("🚀 ~ SignInPage ~ isLoggedIn:", isLoggedIn);
   if (isLoggedIn) redirect("/");
   return <SignInComponent />;
 };
