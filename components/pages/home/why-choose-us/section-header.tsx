@@ -12,7 +12,7 @@ const SectionHeader = () => {
       <SectionHero.Title>
         Smart, Collaborative, and Built for Modern Designers
       </SectionHero.Title>
-      <SectionHero.Subtitle className="max-w-8/12">
+      <SectionHero.Subtitle className="max-w-full md:max-w-8/12">
         From smart components to real-time updates, everything works together to
         keep your team in sync.
       </SectionHero.Subtitle>

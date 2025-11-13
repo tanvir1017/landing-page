@@ -12,7 +12,7 @@ function TemplateShowCaseHeader() {
       <SectionHero.Title>
         Ready-to-use Figma templates for building websites faster.
       </SectionHero.Title>
-      <SectionHero.Subtitle className="max-w-8/12">
+      <SectionHero.Subtitle className="max-w-full md:max-w-8/12">
         Design and explore stunning website layouts with our{" "}
         <span className="font-medium text-[#374151]">
           ready-made templates.

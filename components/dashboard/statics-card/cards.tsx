@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 const StaticsCardsComponent = () => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:gap-4 gap-2">
       {analyticsCards.map((card, index) => (
         <div
           key={index}

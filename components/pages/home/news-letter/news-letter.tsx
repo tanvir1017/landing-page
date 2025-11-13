@@ -31,8 +31,8 @@ const NewsLetter = () => {
               <div className="relative overflow-hidden">
                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-500" />
                 <Input
-                  placeholder="Enter your password"
-                  className="pl-10 py-3 h-[63px] pr-2 rounded-none border-none bg-slate-900 text-white placeholder:text-slate-500"
+                  placeholder="Enter your email address"
+                  className="pl-10 py-3 h-[63px] w-full pr-2 rounded-none border-none bg-[#111827] text-white placeholder:text-slate-500"
                   required
                 />
                 <StyledButtons.PrimaryCTA

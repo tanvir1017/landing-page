@@ -27,18 +27,16 @@ export function ProfileDropDown({
 
   const handleSignOut = async () => {
     toast.promise(
-      // Pass the promise here
       async () => {
-        // Call the logout function
         const response = await logout();
-        // Refresh the router (useful for updating UI after sign-out)
+
         router.refresh();
-        return response; // Return the response if needed for success
+        return response;
       },
       {
         loading: "Signing out, please wait...",
-        success: "Signed out successfully! Redirecting...",
-        error: (error) => `Error signing out: ${error.message || error}`, // Capture and display the actual error message
+        success: "Signed out successfully",
+        error: (error) => `Error signing out: ${error.message || error}`,
       }
     );
   };
@@ -54,7 +52,7 @@ export function ProfileDropDown({
         </StyledButtons.PrimaryNeviBlue>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className="w-[300px] max-h-full rounded-[20px]! p-2 border-stroke border shadow-xl mr-40 mt-[10.5px]"
+        className="w-[300px] max-h-full rounded-[20px]! p-2 border-stroke border shadow-xl mr-20 mt-[10.5px]"
         align="start"
       >
         {session?.user?.email && (

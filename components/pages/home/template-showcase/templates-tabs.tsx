@@ -14,7 +14,7 @@ const TemplateTabs = () => {
       </div>
 
       <div className="relative">
-        <div className="grid grid-cols-1 md:grid-cols-3 md:px-10 md:pt-10 md:pb-[140px] p-3 gap-9 relative ">
+        <div className="grid grid-cols-1 md:grid-cols-3 md:px-10 md:pt-10 pb-[120px] md:pb-[140px] p-3 gap-9 relative ">
           {cardData.map((card) => (
             <div key={card.id}>
               <Image src={card.imgSrc} alt="card" width={508} height={297} />
@@ -27,7 +27,7 @@ const TemplateTabs = () => {
 
           <div className="absolute inset-x-0 bottom-0 h-64 w-full bg-linear-to-t from-[#F3F4F6] via-white/90 to-white/20 opacity-90 pointer-events-none">
             <div className="relative h-full w-full flex justify-center mt-10 ">
-              <div className="flex items-center justify-center md:justify-start space-x-3 mt-11 ">
+              <div className="flex items-center justify-center md:justify-start space-x-3 mt-11 z-10 ">
                 <StyledButtons.Icons className="cursor-pointer h-11! md:w-[191.64px] w-[140px] px-3.5">
                   <FigmaIcon className="size-6" />{" "}
                   <span className="text-[#1F2937] flex items-center">
@@ -38,7 +38,7 @@ const TemplateTabs = () => {
                   </span>
                 </StyledButtons.Icons>
 
-                <StyledButtons.PrimaryNeviBlue className="md:w-[191.64px] w-[140px] h-11! px-3.5">
+                <StyledButtons.PrimaryNeviBlue className="cursor-pointer md:w-[191.64px] w-[140px] h-11! px-3.5">
                   Buy now{" "}
                   <span className="space-x-1 md:flex hidden items-center justify-center text-white/75">
                     <span>- One-time</span>
