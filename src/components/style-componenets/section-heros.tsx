@@ -3,7 +3,7 @@ import { cn } from "@/src/lib/utils";
 const SectionBody = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-6">
-      <div className="md:col-span-4 space-y-3 md:space-y-[18px] pt-8 pb-8 pl-0 md:pt-20 md:pb-10 md:pl-10 ">
+      <div className="md:col-span-4 space-y-3 md:space-y-[18px] pt-8 pb-8 pl-0 md:pt-20 md:pb-10 md:pl-10">
         {children}
       </div>
       {/* Making extra spaces */}
@@ -50,7 +50,7 @@ const Subtitle = ({
   );
 };
 
-const Breaker = ({
+export const Breaker = ({
   children,
   className,
 }: {
@@ -58,7 +58,12 @@ const Breaker = ({
   className?: string;
 }) => {
   return (
-    <div className={cn("border-y h-20 bg-white z-10", className)}>
+    <div
+      className={cn(
+        "relative before:absolute after:absolute before:w-screen after:w-screen before:h-20 after:h-20 before:bg-white after:bg-white before:-translate-x-1/2 after:-translate-x-1/2 before:left-1/2 after:left-1/2 before:top-0 after:top-0 before:block after:block z-10",
+        className
+      )}
+    >
       {children}
     </div>
   );

@@ -6,7 +6,7 @@ import HeroBadge from "./hero-badge";
 
 const HeroSection = () => {
   return (
-    <div className="relative bg-[url('/assets/hero-gradients.png')] bg-no-repeat bg-size-[auto_650px] bg-position-[center_top_-0.8rem] overflow-hidden">
+    <div className="relative bg-[url('/assets/hero-gradients.png')] bg-no-repeat bg-size-[auto_650px] bg-position-[center_top_-0.9rem] overflow-hidden">
       {/* <AnnouncementBar /> */}
 
       {/* Main Hero Content */}

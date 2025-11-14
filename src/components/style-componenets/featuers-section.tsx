@@ -12,7 +12,7 @@ const SectionWrapper = ({
   return (
     <div
       className={cn(
-        "mt-10 grid grid-flow-row md:grid-flow-col justify-items-stretch items-center space-x-20 md:p-0 p-4",
+        "grid grid-flow-row md:grid-flow-col justify-items-stretch items-center space-x-20 md:p-0 p-4",
         className
       )}
     >

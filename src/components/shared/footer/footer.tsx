@@ -5,6 +5,7 @@ import TwitterIcon from "@/src/assets/svgs/twitter-x";
 import { StyledButtons } from "@/src/components/style-componenets/styled-buttons";
 import { cn } from "@/src/lib/utils";
 import { Geist_Mono } from "next/font/google";
+import { SectionBorder } from "../../style-componenets/section-border";
 import Container from "../container";
 import FooterProducts from "./footer-products";
 import SiteMapLink from "./sitemap-link";
@@ -15,32 +16,34 @@ const geistMono = Geist_Mono({
 });
 const Footer = () => {
   return (
-    <Container>
-      <div className="relative mb-[86px] mt-20 md:mx-10 mx-2 ">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-          <div className="col-span-2">
-            <div className="mb-12 space-y-7">
-              <SiteLogo className="" />
-              <p className="text-[#6B7280] leading-6 max-w-md!">
-                Browse and effortlessly copy-paste from over 800+ components and
-                templates to craft high-quality, custom Tailwind CSS websites
-                without coding.
-              </p>
-            </div>
+    <Container className="max-w-full">
+      <div className={SectionBorder.wrapper("top")}>
+        <div className="relative mb-[86px] mt-sec-gap md:mx-10 mx-2 ">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+            <div className="col-span-2">
+              <div className="mb-12 space-y-7">
+                <SiteLogo className="" />
+                <p className="text-[#6B7280] leading-6 max-w-md!">
+                  Browse and effortlessly copy-paste from over 800+ components
+                  and templates to craft high-quality, custom Tailwind CSS
+                  websites without coding.
+                </p>
+              </div>
 
-            <div className="space-x-1.5">
-              <StyledButtons.Icons className=" h-8 w-8 ">
-                <TwitterIcon />
-              </StyledButtons.Icons>
-              <StyledButtons.Icons className=" h-8 w-8 ">
-                <GithubIcon />
-              </StyledButtons.Icons>
-              <StyledButtons.Icons className="h-8 w-8">
-                <DiscordIcon />
-              </StyledButtons.Icons>
+              <div className="space-x-1.5">
+                <StyledButtons.Icons className=" h-8 w-8 ">
+                  <TwitterIcon />
+                </StyledButtons.Icons>
+                <StyledButtons.Icons className=" h-8 w-8 ">
+                  <GithubIcon />
+                </StyledButtons.Icons>
+                <StyledButtons.Icons className="h-8 w-8">
+                  <DiscordIcon />
+                </StyledButtons.Icons>
+              </div>
             </div>
+            <SiteMapLink />
           </div>
-          <SiteMapLink />
         </div>
       </div>
       <FooterProducts />

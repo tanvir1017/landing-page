@@ -10,47 +10,45 @@ import Image from "next/image";
 
 const SectionFeatures = () => {
   return (
-    <div className="bg-[#F3F4F6]">
-      <FeaturesSection.SectionWrapper>
-        <FeaturesSection.SectionContent className="mr-0">
-          <FeaturesSection.SectionTitle>
-            Built with Figma's latest features
-          </FeaturesSection.SectionTitle>
-          <FeaturesSection.FeatureSection items={featureItems} className="" />
+    <FeaturesSection.SectionWrapper className="bg-sec border-t">
+      <FeaturesSection.SectionContent className="">
+        <FeaturesSection.SectionTitle>
+          Built with Figma's latest features
+        </FeaturesSection.SectionTitle>
+        <FeaturesSection.FeatureSection items={featureItems} className="" />
 
-          <div className="flex items-center justify-center md:justify-start space-x-3 mt-11 ">
-            <StyledButtons.Icons className="cursor-pointer h-11! md:w-[191.64px] w-[140px] px-3.5">
-              <FigmaIcon className="size-6" />{" "}
-              <span className="text-[#1F2937] flex items-center">
-                Preview{" "}
-                <span className="md:flex hidden items-center text-black/70 ml-0.5 ">
-                  - Figma <ChevronRightIcon className="w-4 h-4" />
-                </span>{" "}
-              </span>
-            </StyledButtons.Icons>
+        <div className="flex items-center justify-center md:justify-start space-x-3 mt-11 ">
+          <StyledButtons.Icons className="cursor-pointer h-11! md:w-[191.64px] w-[140px] px-3.5">
+            <FigmaIcon className="size-6" />{" "}
+            <span className="text-[#1F2937] flex items-center">
+              Preview{" "}
+              <span className="md:flex hidden items-center text-black/70 ml-0.5 ">
+                - Figma <ChevronRightIcon className="w-4 h-4" />
+              </span>{" "}
+            </span>
+          </StyledButtons.Icons>
 
-            <StyledButtons.PrimaryNeviBlue className="md:w-[191.64px] w-[140px] h-11! px-3.5">
-              Buy now{" "}
-              <span className="space-x-1 md:flex hidden items-center justify-center text-white/75">
-                <span>- One-time</span>
-                <ChevronRightIcon className="w-4 h-4" />
-              </span>
-            </StyledButtons.PrimaryNeviBlue>
-          </div>
-        </FeaturesSection.SectionContent>
-        <FeaturesSection.SectionContent className="pt-10 md:pt-0">
-          <FeaturesSection.SectionImage>
-            <Image
-              src="/assets/latest-features1.png"
-              alt="why-choose-us"
-              className=""
-              width={660}
-              height={564}
-            />
-          </FeaturesSection.SectionImage>
-        </FeaturesSection.SectionContent>
-      </FeaturesSection.SectionWrapper>
-    </div>
+          <StyledButtons.PrimaryNeviBlue className="md:w-[191.64px] w-[140px] h-11! px-3.5">
+            Buy now{" "}
+            <span className="space-x-1 md:flex hidden items-center justify-center text-white/75">
+              <span>- One-time</span>
+              <ChevronRightIcon className="w-4 h-4" />
+            </span>
+          </StyledButtons.PrimaryNeviBlue>
+        </div>
+      </FeaturesSection.SectionContent>
+      <FeaturesSection.SectionContent className="pt-10 md:pt-0">
+        <FeaturesSection.SectionImage>
+          <Image
+            src="/assets/latest-features1.png"
+            alt="why-choose-us"
+            className=""
+            width={660}
+            height={564}
+          />
+        </FeaturesSection.SectionImage>
+      </FeaturesSection.SectionContent>
+    </FeaturesSection.SectionWrapper>
   );
 };
 

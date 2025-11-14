@@ -46,8 +46,10 @@
   --text-secondary: var(--text-secondary);
   --border-stroke: var(--border-stroke);
   --title-text: var(--title-text);
-
   --section-bg: var(--section-bg);
+
+  --color-sec: #f3f4f6;
+  --spacing-sec-gap: 5rem;
 }
 
 :root {

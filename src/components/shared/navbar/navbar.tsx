@@ -12,6 +12,7 @@ import MacSuper from "@/src/assets/svgs/mac-super";
 import { useIsMobile } from "@/src/hooks/use-mobile";
 import { SearchIcon } from "lucide-react";
 import { toast } from "sonner";
+import { SectionBorder } from "../../style-componenets/section-border";
 import { StyledButtons } from "../../style-componenets/styled-buttons";
 import { Input } from "../../ui/input";
 import Container from "../container";
@@ -25,7 +26,6 @@ const Navbar = ({
   session: SessionContext | null;
   megaMenu: T_MenuItem[];
 }) => {
-  const router = useRouter();
   const pathName = usePathname();
   const isMobile = useIsMobile();
 
@@ -44,9 +44,11 @@ const Navbar = ({
     );
   } else {
     return (
-      <div className="sticky top-0 mx-auto bg-white z-10 max-w-full w-full border-b container">
-        <div className="md:p-5 p-0 w-full">
-          <DesktopNavbar session={session} megaMenu={megaMenu} />
+      <div className="sticky top-0 mx-auto bg-white z-50 max-w-full w-full border-b">
+        <div className="mx-auto w-full">
+          <div className={SectionBorder.wrapper("both", "md:p-5 p-0 ")}>
+            <DesktopNavbar session={session} megaMenu={megaMenu} />
+          </div>
           <MobileNavbar session={session} megaMenu={megaMenu} />
         </div>
       </div>

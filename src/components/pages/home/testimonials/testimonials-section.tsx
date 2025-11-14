@@ -1,14 +1,14 @@
-import Container from "@/src/components/shared/container";
-import TestimonialsBento from "./bento-testimonials";
+import { SectionBorder } from "@/src/components/style-componenets/section-border";
+import TestimonialCard from "./bento-testimonials";
 import TestimonialHeader from "./testimonials-header";
 
 const TestimonialSection = () => {
   return (
     <>
-      <Container>
-        <TestimonialHeader />
-        <TestimonialsBento />
-      </Container>
+      <TestimonialHeader />
+      <div className={SectionBorder.wrapper("both", "")}>
+        <TestimonialCard />
+      </div>
     </>
   );
 };
