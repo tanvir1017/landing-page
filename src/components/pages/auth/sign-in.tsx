@@ -1,12 +1,12 @@
 "use client";
 import GithubIcon from "@/src/assets/svgs/github";
 import GoogleIcon from "@/src/assets/svgs/google";
-import SiteLogo from "@/src/assets/svgs/Logo";
 import { Button } from "@/src/components/ui/button";
 import { Input } from "@/src/components/ui/input";
 import { authClient, githubSignIn, googleSignIn } from "@/src/lib/auth-client";
 import { cn } from "@/src/lib/utils";
 import { Eye, EyeOff, Loader } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -57,7 +57,12 @@ const SignInComponent = () => {
         <div className="flex items-center justify-center py-10">
           <div className="max-w-md text-center space-y-4 px-4 md:px-0">
             <Link href="/" className="flex items-center justify-center">
-              <SiteLogo className="w-36!" />
+              <Image
+                src="/assets/site-logo.png"
+                alt="Site Logo"
+                width={100}
+                height={36}
+              />
             </Link>
             <h2 className="font-medium text-2xl md:text-4xl leading-8 md:leading-12 tracking-[-0.5px] text-center align-middle text-[#2E2E2E]">
               Sign In to your account
@@ -91,7 +96,7 @@ const SignInComponent = () => {
                     onClick={githubSignIn}
                     className="w-full h-12 rounded-full border-[0.5px] border-slate-200 bg-white hover:bg-slate-200 transition-colors flex items-center justify-center gap-3 text-slate-700 font-medium cursor-pointer "
                   >
-                    <GithubIcon />
+                    <GithubIcon fill="#000000" />
                     Continue with Github
                   </Button>
                 </div>
@@ -222,7 +227,7 @@ const SignInComponent = () => {
                   onClick={githubSignIn}
                   className="w-full h-12 rounded-full border-[0.5px] border-slate-200 bg-white hover:bg-slate-200 transition-colors flex items-center justify-center gap-3 text-slate-700 font-medium cursor-pointer"
                 >
-                  <GithubIcon />
+                  <GithubIcon fill="#000000" />
                   <span className="text-sm md:text-base">
                     Continue with Github
                   </span>

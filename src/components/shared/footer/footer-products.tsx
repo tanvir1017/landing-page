@@ -7,7 +7,7 @@ const FooterProducts = () => {
   const isMobile = useIsMobile();
   return (
     <div>
-      <div className="mb-5 ml-10 text-center md:text-left">
+      <div className="mb-5 md:ml-10 text-center md:text-left">
         <p className="leading-6 text-[#374151] ">Explore our others products</p>
       </div>
 

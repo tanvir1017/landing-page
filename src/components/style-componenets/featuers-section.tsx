@@ -12,7 +12,7 @@ const SectionWrapper = ({
   return (
     <div
       className={cn(
-        "grid grid-flow-row md:grid-flow-col justify-items-stretch items-center space-x-20 md:p-0 p-4",
+        "grid grid-flow-row md:grid-flow-col justify-items-stretch items-center space-x-20 md:p-0 p-5",
         className
       )}
     >
@@ -29,7 +29,7 @@ const SectionImage = ({
   className?: string;
 }) => {
   return (
-    <div className={cn("md:justify-self-start  p-0 md:p-4", className)}>
+    <div className={cn("md:justify-self-start p-0 md:p-4", className)}>
       {children}
     </div>
   );

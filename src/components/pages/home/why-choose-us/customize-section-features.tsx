@@ -30,7 +30,7 @@ const CustomizedSectionFeatures = () => {
   return (
     <FeaturesSection.SectionWrapper className="mt-0 bg-sec border-t">
       <FeaturesSection.SectionContent className="">
-        <FeaturesSection.SectionImage className="p-0 md:p-4">
+        <FeaturesSection.SectionImage className="p-0 md:p-4 md:block hidden">
           <Image
             src="/assets/customize-mode.png"
             alt="customize-mode"

@@ -16,7 +16,8 @@ const DiagonalPatternWrapper: React.FC<{
   return (
     <div
       className={cn(
-        "relative grid min-h-dvh sm:grid-cols-[4.5rem_2.5rem_auto_2.5rem_4.5rem] grid-rows-[1fr_1px_auto_1px_1fr]  [--pattern-fg:var(--color-gray-950)]/5 dark:bg-gray-950 dark:[--pattern-fg:var(--color-white)]/10",
+        "relative min-h-dvh [--pattern-fg:var(--color-gray-950)]/5 dark:bg-gray-950 dark:[--pattern-fg:var(--color-white)]/10",
+        "grid grid-cols-1 sm:grid-cols-[4.5rem_2.5rem_auto_2.5rem_4.5rem] grid-rows-[1fr_1px_auto_1px_1fr]",
         className
       )}
     >
@@ -36,7 +37,7 @@ const DiagonalChildren: React.FC<{
   return (
     <div
       className={cn(
-        "col-start-3 row-start-3 max-w-full flex flex-col",
+        "col-start-1 sm:col-start-3 row-start-3 max-w-full flex flex-col",
         className
       )}
     >
@@ -77,7 +78,7 @@ const DiagonalStripes: React.FC<{
   return (
     <div
       className={cn(
-        "relative border-x-(--pattern-fg)",
+        "relative border-x-(--pattern-fg) hidden sm:block",
         positionStyles,
         DIAGONAL_PATTERN,
         className

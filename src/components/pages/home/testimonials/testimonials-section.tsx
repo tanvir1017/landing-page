@@ -4,12 +4,12 @@ import TestimonialHeader from "./testimonials-header";
 
 const TestimonialSection = () => {
   return (
-    <>
+    <div className="md:block hidden">
       <TestimonialHeader />
       <div className={SectionBorder.wrapper("both", "")}>
         <TestimonialCard />
       </div>
-    </>
+    </div>
   );
 };
 

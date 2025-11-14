@@ -16,7 +16,7 @@ const NewsLetter = () => {
         <SectionBorder.SectionBorderWrapper
           className={SectionBorder.wrapper(
             "both",
-            " border-[#1A1E28] border-y"
+            " border-[#1A1E28] md:border-y "
           )}
         >
           <div className="grid grid-cols-1 md:grid-cols-5  space-y-4 md:space-y-0">

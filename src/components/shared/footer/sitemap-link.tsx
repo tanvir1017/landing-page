@@ -6,7 +6,7 @@ const SiteMapLink = () => {
   return (
     <>
       {footerSitemap.map((section) => (
-        <div key={section.section} className="mt-7">
+        <div key={section.section} className="mt-7  md:px-0 px-3">
           <h3
             className={cn(
               "md:font-medium font-bold text-[#6B7280] md:mb-7 mb-3",

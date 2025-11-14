@@ -15,6 +15,7 @@ import { ChevronRight, LogOut, Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export function MobileNavbarSlider({
   session,
@@ -28,7 +29,14 @@ export function MobileNavbarSlider({
   const simpleMenuItems = megaMenu.filter((item) => item.type !== "mega");
 
   const closeSheet = () => setIsOpen(false);
-
+  const handleSignOut = async () => {
+    toast.promise(logout(), {
+      loading: "Signing out...",
+      success: "Signed out",
+      error: (err: any) => err?.message || "Unable to sign out",
+    });
+    closeSheet();
+  };
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
@@ -36,12 +44,12 @@ export function MobileNavbarSlider({
           <Menu className="size-4 text-[#1f2937]" />
         </StyledButtons.Icons>
       </SheetTrigger>
-      <SheetContent className="w-full min-h-dvh overflow-y-auto flex flex-col">
+      <SheetContent className="w-full min-h-dvh overflow-y-auto flex flex-col  pb-6">
         <SheetHeader>
           <SheetTitle className="">
-            <Link href="/">
+            <Link href="/" onClick={closeSheet}>
               <Image
-                src="/assets/Logo.svg"
+                src="/assets/site-logo.png"
                 alt="Site Logo"
                 width={101}
                 height={40}
@@ -50,9 +58,7 @@ export function MobileNavbarSlider({
           </SheetTitle>
         </SheetHeader>
 
-        {/* Main Menu Content */}
         <div className="flex-1 ">
-          {/* User Profile Section - When Authenticated */}
           {session?.user && (
             <div className="mb-6  border-b">
               <div className="px-4 py-3  rounded-lg flex items-center space-x-3">
@@ -68,9 +74,8 @@ export function MobileNavbarSlider({
             </div>
           )}
 
-          {/* Simple Navigation Links */}
           {simpleMenuItems.length > 0 && (
-            <div className="mb-6 space-y-2">
+            <div className="mb-6 space-y-2 px-4">
               {simpleMenuItems.map((item) => (
                 <Link
                   key={item.id}
@@ -84,9 +89,8 @@ export function MobileNavbarSlider({
             </div>
           )}
 
-          {/* Mega Menu Items */}
           {megaMenuItems.length > 0 && (
-            <div className="space-y-4">
+            <div className="space-y-4 px-4">
               {megaMenuItems.map((item) => (
                 <div key={item.id} className="px-2">
                   <h3 className="px-2 py-1.5 text-sm font-semibold text-[#6B7280] uppercase tracking-wide">
@@ -120,10 +124,8 @@ export function MobileNavbarSlider({
           )}
         </div>
 
-        {/* Footer Section - Social & Auth */}
         <div className="border-t pt-6 pb-4 space-y-4">
-          {/* Social Icons */}
-          <div className="flex items-center justify-between space-x-2 px-2">
+          <div className="flex items-center justify-between space-x-2 px-4">
             <span className="text-xs font-semibold text-[#6B7280] uppercase">
               Follow us :
             </span>
@@ -140,14 +142,10 @@ export function MobileNavbarSlider({
             </div>
           </div>
 
-          {/* Auth & CTA Buttons */}
-          <div className="flex flex-col space-y-2 px-2">
+          <div className="flex flex-col space-y-2 px-4">
             {session ? (
               <StyledButtons.PrimaryNeviBlue
-                onClick={() => {
-                  logout();
-                  closeSheet();
-                }}
+                onClick={handleSignOut}
                 className="w-full"
               >
                 <LogOut className="w-4 h-4" />

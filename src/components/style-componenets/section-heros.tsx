@@ -2,7 +2,7 @@ import { cn } from "@/src/lib/utils";
 
 const SectionBody = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-6">
+    <div className="grid grid-cols-1 md:grid-cols-6  md:px-0 px-3">
       <div className="md:col-span-4 space-y-3 md:space-y-[18px] pt-8 pb-8 pl-0 md:pt-20 md:pb-10 md:pl-10">
         {children}
       </div>

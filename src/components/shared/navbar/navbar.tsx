@@ -10,6 +10,7 @@ import { ProfileDropDown } from "../../dashboard/profile-dropdown";
 
 import MacSuper from "@/src/assets/svgs/mac-super";
 import { ChevronRight, SearchIcon, X } from "lucide-react";
+import Image from "next/image";
 import React from "react";
 import { toast } from "sonner";
 import { StyledButtons } from "../../style-componenets/styled-buttons";
@@ -28,8 +29,8 @@ const Navbar = ({
 }) => {
   const [isVisible, setIsVisible] = React.useState(true);
   return (
-    <div className="sticky top-0 mx-auto z-50 border-b bg-white">
-      <Container className="max-w-[92.3%]  border-x">
+    <div className="sticky top-0 mx-auto z-50 border-b bg-white max-w-full">
+      <Container className="max-w-full  md:max-w-[92.3%]  md:border-x">
         {isVisible && (
           <div className={"px-6 py-3 border-b"}>
             <VersionNoticeTopBar
@@ -38,7 +39,7 @@ const Navbar = ({
             />
           </div>
         )}
-        <div className="px-8 py-5">
+        <div className="md:px-8 px-0 md:py-5 py-0">
           <DesktopNavbar session={session} megaMenu={megaMenu} />
         </div>
       </Container>
@@ -131,9 +132,14 @@ const MobileNavbar = ({
   return (
     <div className="md:hidden block" id="navbar-mobile">
       <Container className="max-w-full">
-        <div className="flex items-center justify-between px-2.5 py-2">
+        <div className="flex items-center justify-between p-3">
           <div onClick={() => router.push("/")} className="cursor-pointer">
-            <SiteLogo className="w-24! mx-auto" />
+            <Image
+              src="/assets/site-logo.png"
+              alt="Site Logo"
+              width={96}
+              height={24}
+            />
           </div>
           <div className="cursor-pointer">
             <MobileNavbarSlider megaMenu={megaMenu} session={session} />
@@ -157,15 +163,23 @@ const VersionNoticeTopBar = ({
       <div className="flex items-center justify-between">
         <div></div>
         <div className="space-x-2.5">
-          <span className="text-sm leading-5 tracking-[-0.2px] text-[#6B7280]">
+          <span className="text-sm leading-5 tracking-[-0.2px] text-[#6B7280] ">
             {" "}
             We just raised our biggest updates -{" "}
+            <br className="block md:hidden " />
             <span className="font-semibold">Brand V3.0 🎉</span>
           </span>
-          <StyledButtons.Icons className="text-[#374151] text-xs font-medium leading-4 tracking-[-0.2px] rounded-full cursor-pointer">
+          <StyledButtons.Icons className="md:inline-flex items-center hidden text-[#374151] text-xs font-medium leading-4 tracking-[-0.2px] rounded-full cursor-pointer">
             Check it out
             <ChevronRight className="ml-2 h-4 w-4" />
           </StyledButtons.Icons>
+
+          <Link
+            href="/blog/introducing-pimjo-v3-our-biggest-update-yet"
+            className="inline-flex items-center text-[#374151] text-sm italic underline font-medium leading-4 tracking-[-0.2px] rounded-full cursor-pointer md:hidden"
+          >
+            Check it out <ChevronRight className="ml-2 h-4 w-4" />
+          </Link>
         </div>
         <Button
           onClick={() => setIsVisible(false)}

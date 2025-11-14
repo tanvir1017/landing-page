@@ -33,7 +33,6 @@ export default async function RootLayout({
     <html lang="en">
       <body className={`${dmSans.className} antialiased relative isolate `}>
         <Navbar session={session} megaMenu={megaMenu} />
-        {/* <PatternWrapper>{children}</PatternWrapper> */}
         <DiagonalPattern.DiagonalPatternWrapper>
           {children}
         </DiagonalPattern.DiagonalPatternWrapper>

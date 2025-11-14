@@ -1,10 +1,10 @@
 import DiscordIcon from "@/src/assets/svgs/discord";
 import GithubIcon from "@/src/assets/svgs/github";
-import SiteLogo from "@/src/assets/svgs/Logo";
 import TwitterIcon from "@/src/assets/svgs/twitter-x";
 import { StyledButtons } from "@/src/components/style-componenets/styled-buttons";
 import { cn } from "@/src/lib/utils";
 import { Geist_Mono } from "next/font/google";
+import Image from "next/image";
 import { SectionBorder } from "../../style-componenets/section-border";
 import Container from "../container";
 import FooterProducts from "./footer-products";
@@ -20,9 +20,14 @@ const Footer = () => {
       <div className={SectionBorder.wrapper("top")}>
         <div className="relative mb-[86px] mt-sec-gap  md:mx-10 mx-2 ">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4 pt-sec-gap">
-            <div className="col-span-2">
+            <div className="col-span-2 md:px-0 px-3">
               <div className="mb-12 space-y-7">
-                <SiteLogo className="" />
+                <Image
+                  src="/assets/site-logo.png"
+                  alt="Pimjo Logo"
+                  width={110}
+                  height={110}
+                />
                 <p className="text-[#6B7280] leading-6 max-w-md!">
                   Browse and effortlessly copy-paste from over 800+ components
                   and templates to craft high-quality, custom Tailwind CSS

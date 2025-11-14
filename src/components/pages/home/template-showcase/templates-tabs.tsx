@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const TemplateTabs = () => {
   return (
-    <div className="bg-sec">
+    <div className="bg-sec md:px-0 px-3">
       <div className="py-5 md:px-10 md:border-b border-b-0">
         <div className="flex items-center flex-wrap md:justify-start justify-center space-y-1 space-x-1">
           <TabButtons />

@@ -85,8 +85,8 @@ const testimonials: Testimonial[] = [
 const TestimonialCard = () => {
   return (
     <div className="bg-sec p-10">
-      <div className="grid grid-cols-3 grid-rows-4 gap-2 ">
-        <div className="bg-white rounded-2xl p-10 border col-start-1 row-start-1 row-end-3 row-span-2">
+      <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-4 gap-2 ">
+        <div className="bg-white rounded-2xl p-10 border md:col-start-1 row-start-1 row-end-3 row-span-2">
           <div className="user-info flex items-center justify-between">
             <div className="w-full flex items-center space-x-3.5">
               <Image
@@ -126,7 +126,7 @@ const TestimonialCard = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-10 border col-start-2 row-span-1">
+        <div className="bg-white rounded-2xl p-10 border md:col-start-2 row-span-1">
           <div className="user-info flex items-center justify-between">
             <div className="w-ful flex items-center space-x-3.5">
               <Image
@@ -199,7 +199,7 @@ const TestimonialCard = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-10 border col-start-2 row-start-2 row-span-2">
+        <div className="bg-white rounded-2xl p-10 border md:col-start-2 row-start-2 row-span-2">
           <div className="user-info flex items-center justify-between">
             <div className="w-ful flex items-center space-x-3.5">
               <Image
@@ -235,7 +235,7 @@ const TestimonialCard = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-10 border col-start-2 row-span-1">
+        <div className="bg-white rounded-2xl p-10 border md:col-start-2 row-span-1">
           <div className="user-info flex items-center justify-between">
             <div className="w-ful flex items-center space-x-3.5">
               <Image
@@ -269,7 +269,7 @@ const TestimonialCard = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-10 border col-start-3 row-start-1 row-span-2">
+        <div className="bg-white rounded-2xl p-10 border md:col-start-3 row-start-1 row-span-2">
           <div className="user-info flex items-center justify-between">
             <div className="w-ful flex items-center space-x-3.5">
               <Image
@@ -306,7 +306,7 @@ const TestimonialCard = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-10 border col-start-3 row-start-3  row-span-2">
+        <div className="bg-white rounded-2xl p-10 border md:col-start-3 row-start-3  row-span-2">
           <div className="user-info flex items-center justify-between">
             <div className="w-ful flex items-center space-x-3.5">
               <Image

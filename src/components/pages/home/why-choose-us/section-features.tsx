@@ -10,7 +10,7 @@ import Image from "next/image";
 
 const SectionFeatures = () => {
   return (
-    <FeaturesSection.SectionWrapper className="bg-sec border-t">
+    <FeaturesSection.SectionWrapper className="bg-sec border-t ">
       <FeaturesSection.SectionContent className="">
         <FeaturesSection.SectionTitle>
           Built with Figma's latest features
@@ -37,8 +37,8 @@ const SectionFeatures = () => {
           </StyledButtons.PrimaryNeviBlue>
         </div>
       </FeaturesSection.SectionContent>
-      <FeaturesSection.SectionContent className="pt-10 md:pt-0">
-        <FeaturesSection.SectionImage>
+      <FeaturesSection.SectionContent className="pt-10 md:pt-0  md:block hidden">
+        <FeaturesSection.SectionImage className="overflow-hidden">
           <Image
             src="/assets/latest-features1.png"
             alt="why-choose-us"
