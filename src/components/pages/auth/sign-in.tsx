@@ -6,7 +6,7 @@ import { Button } from "@/src/components/ui/button";
 import { Input } from "@/src/components/ui/input";
 import { authClient, githubSignIn, googleSignIn } from "@/src/lib/auth-client";
 import { cn } from "@/src/lib/utils";
-import { Eye, EyeOff, LoaderPinwheel } from "lucide-react";
+import { Eye, EyeOff, Loader } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -54,8 +54,7 @@ const SignInComponent = () => {
   return (
     <div className="relative">
       <div className="pt-10">
-        {/* Sign in page header */}
-        <div className="border border-t-0 border-slate-200 flex items-center justify-center py-10">
+        <div className="flex items-center justify-center py-10">
           <div className="max-w-md text-center space-y-4 px-4 md:px-0">
             <Link href="/" className="flex items-center justify-center">
               <SiteLogo className="w-36!" />
@@ -71,10 +70,9 @@ const SignInComponent = () => {
           </div>
         </div>
 
-        {/* Responsive 3 columns grid layout - Hidden on mobile */}
-        <div className="hidden md:grid md:grid-cols-3 [&>div]:border-l [&>div]:border-slate-200 [&>div]:p-[60px]">
+        <div className="hidden md:grid md:grid-cols-3 [&>div]:p-[60px] border-t">
           <div className="col-span-1"></div>
-          <div className="col-span-1" id="sign-in-page">
+          <div className="col-span-1 border-x" id="sign-in-page">
             <div className="bg-[#F3F4F6] p-3 rounded-[34px]">
               <div className="">
                 {/* OAuth Buttons */}
@@ -174,7 +172,7 @@ const SignInComponent = () => {
                     >
                       {loading ? (
                         <>
-                          <LoaderPinwheel className="animate-spin animate text-slate-50" />{" "}
+                          <Loader className="animate-spin animate text-slate-50" />{" "}
                           sign in...{" "}
                         </>
                       ) : (
@@ -312,7 +310,7 @@ const SignInComponent = () => {
                   >
                     {loading ? (
                       <>
-                        <LoaderPinwheel className="animate-spin animate text-slate-50" />{" "}
+                        <Loader className="animate-spin animate text-slate-50" />{" "}
                         <span className="text-xs md:text-base">sign in...</span>
                       </>
                     ) : (
@@ -336,10 +334,6 @@ const SignInComponent = () => {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="border-b h-[123px] hidden md:block">
-          <div className="border pt-20"></div>
         </div>
       </div>
     </div>

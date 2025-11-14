@@ -1,11 +1,13 @@
 import Link from "next/link";
 import Container from "../components/shared/container";
 import { StyledButtons } from "../components/style-componenets/styled-buttons";
+import { geistMono } from "../lib/fonts";
+import { cn } from "../lib/utils";
 
 const NotFound = () => {
   return (
-    <Container>
-      <div className="max-w-full bg-slate-100 min-h-dvh flex-col flex items-center justify-center">
+    <Container className="max-w-full bg-sec min-h-dvh -mt-px">
+      <div className=" flex-col flex items-center justify-center">
         <div className="flex flex-col items-center gap-8 px-6 py-12">
           <svg
             className="w-36 h-36 text-primary"
@@ -31,14 +33,19 @@ const NotFound = () => {
             <circle cx="60" cy="60" r="4" fill="currentColor" />
           </svg>
 
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-md max-w-xl w-full text-center px-8 py-10">
-            <h1 className="text-6xl font-extrabold text-slate-800 tracking-tight">
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl max-w-xl w-full text-center px-8 py-10 border">
+            <h1
+              className={cn(
+                "text-6xl font-extrabold text-slate-800 tracking-tight",
+                geistMono.className
+              )}
+            >
               404
             </h1>
             <h2 className="mt-3 text-2xl font-semibold text-slate-700">
               You seem to be off the map
             </h2>
-            <p className="mt-3 text-sm text-slate-500">
+            <p className="mt-3 text-sm text-slate-500 ">
               The page you're looking for doesn't exist or has moved. Try
               returning home or check the URL.
             </p>

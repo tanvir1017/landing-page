@@ -12,8 +12,8 @@ import { getNavMenu } from "./actions/fetch-data";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  //title: "Pimjo Task ",
-  title: "Landing Page",
+  title: "Pimjo Task ",
+
   description:
     "The ultimate Figma to code platform for developers and designers. Seamlessly convert your Figma designs into clean, responsive code with Pimjo's AI-powered tools. Boost your productivity and streamline your workflow today.",
 };

@@ -16,7 +16,7 @@ const DiagonalPatternWrapper: React.FC<{
   return (
     <div
       className={cn(
-        "relative grid min-h-dvh sm:grid-cols-[4.5rem_2.5rem_auto_2.5rem_4.5rem] grid-rows-[1fr_1px_auto_1px_1fr] bg-white [--pattern-fg:var(--color-gray-950)]/5 dark:bg-gray-950 dark:[--pattern-fg:var(--color-white)]/10",
+        "relative grid min-h-dvh  sm:grid-cols-[4.5rem_2.5rem_auto_2.5rem_4.5rem] grid-rows-[1fr_1px_auto_1px_1fr]  [--pattern-fg:var(--color-gray-950)]/5 dark:bg-gray-950 dark:[--pattern-fg:var(--color-white)]/10",
         className
       )}
     >

@@ -9,8 +9,8 @@ const DashboardPage = async ({}) => {
 
   if (!isLogged) redirect("/sign-in");
   return (
-    <Container className="max-w-full md:max-w-[88.3%]">
-      <div className="bg-[#F3F4F6] min-h-dvh md:space-y-[30px] space-y-[15px] md:p-10 p-4">
+    <Container className="max-w-full -mt-px">
+      <div className="bg-sec min-h-dvh md:space-y-[30px] space-y-[15px] md:p-10 p-4">
         <StaticsCardsComponent />
         <UserTable />
       </div>

@@ -1,7 +1,7 @@
 "use client";
 import { SessionContext, T_MenuItem } from "@/types";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import DiscordIcon from "../../../assets/svgs/discord";
 import GithubIcon from "../../../assets/svgs/github";
 import SiteLogo from "../../../assets/svgs/Logo";
@@ -9,7 +9,6 @@ import TwitterIcon from "../../../assets/svgs/twitter-x";
 import { ProfileDropDown } from "../../dashboard/profile-dropdown";
 
 import MacSuper from "@/src/assets/svgs/mac-super";
-import { useIsMobile } from "@/src/hooks/use-mobile";
 import { SearchIcon } from "lucide-react";
 import { toast } from "sonner";
 import { SectionBorder } from "../../style-componenets/section-border";
@@ -26,34 +25,16 @@ const Navbar = ({
   session: SessionContext | null;
   megaMenu: T_MenuItem[];
 }) => {
-  const pathName = usePathname();
-  const isMobile = useIsMobile();
-
-  if (["/sign-in", "/sign-up"].includes(pathName) && !isMobile) {
-    return (
-      <div className="sticky top-0  z-10 bg-transparent">
-        <div className="border-b">
-          <Container className="max-w-[92.4%] border-x bg-white">
-            <div className="py-10"></div>
-          </Container>
+  return (
+    <div className="sticky top-0 mx-auto bg-white z-50 max-w-full w-full border-b">
+      <div className="mx-auto w-full">
+        <div className={SectionBorder.wrapper("both", "md:p-5 p-0 ")}>
+          <DesktopNavbar session={session} megaMenu={megaMenu} />
         </div>
-        <div className="border-b">
-          <Container className="h-[123px] bg-white"></Container>
-        </div>
+        <MobileNavbar session={session} megaMenu={megaMenu} />
       </div>
-    );
-  } else {
-    return (
-      <div className="sticky top-0 mx-auto bg-white z-50 max-w-full w-full border-b">
-        <div className="mx-auto w-full">
-          <div className={SectionBorder.wrapper("both", "md:p-5 p-0 ")}>
-            <DesktopNavbar session={session} megaMenu={megaMenu} />
-          </div>
-          <MobileNavbar session={session} megaMenu={megaMenu} />
-        </div>
-      </div>
-    );
-  }
+    </div>
+  );
 };
 
 export const DesktopNavbar = ({
@@ -66,8 +47,8 @@ export const DesktopNavbar = ({
   const router = useRouter();
   return (
     <div className="md:block hidden" id="navbar-desktop">
-      <Container>
-        <div className="flex  items-center justify-between">
+      <Container className="">
+        <div className="flex items-center justify-between">
           <div className="flex items-center justify-start space-x-11">
             <Link
               href={"/"}

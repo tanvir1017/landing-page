@@ -84,8 +84,8 @@ const testimonials: Testimonial[] = [
 
 const TestimonialCard = () => {
   return (
-    <div className="mx-auto min-h-dvh border bg-[#F3F4F6] p-4">
-      <div className="grid grid-cols-3 grid-rows-4 gap-2">
+    <div className="bg-sec p-10">
+      <div className="grid grid-cols-3 grid-rows-4 gap-2 ">
         <div className="bg-white rounded-2xl p-10 border col-start-1 row-start-1 row-end-3 row-span-2">
           <div className="user-info flex items-center justify-between">
             <div className="w-full flex items-center space-x-3.5">
@@ -161,7 +161,7 @@ const TestimonialCard = () => {
 
         <div className="bg-white rounded-2xl p-10 border col-start-1 row-span-2">
           <div className="user-info flex items-center justify-between">
-            <div className="w-ful flex items-center space-x-[14px]">
+            <div className="w-ful flex items-center space-x-3.5">
               <Image
                 alt="Ostap Brehin"
                 src="/assets/ostap.png"
@@ -201,7 +201,7 @@ const TestimonialCard = () => {
 
         <div className="bg-white rounded-2xl p-10 border col-start-2 row-start-2 row-span-2">
           <div className="user-info flex items-center justify-between">
-            <div className="w-ful flex items-center space-x-[14px]">
+            <div className="w-ful flex items-center space-x-3.5">
               <Image
                 alt="Marko Denic"
                 src="/assets/marko.png"
@@ -237,7 +237,7 @@ const TestimonialCard = () => {
 
         <div className="bg-white rounded-2xl p-10 border col-start-2 row-span-1">
           <div className="user-info flex items-center justify-between">
-            <div className="w-ful flex items-center space-x-[14px]">
+            <div className="w-ful flex items-center space-x-3.5">
               <Image
                 alt="Anamoul Rouf"
                 src="/assets/anamol.png"
@@ -271,7 +271,7 @@ const TestimonialCard = () => {
 
         <div className="bg-white rounded-2xl p-10 border col-start-3 row-start-1 row-span-2">
           <div className="user-info flex items-center justify-between">
-            <div className="w-ful flex items-center space-x-[14px]">
+            <div className="w-ful flex items-center space-x-3.5">
               <Image
                 alt="Athar Ahmed"
                 src="/assets/athar.png"
@@ -308,7 +308,7 @@ const TestimonialCard = () => {
 
         <div className="bg-white rounded-2xl p-10 border col-start-3 row-start-3  row-span-2">
           <div className="user-info flex items-center justify-between">
-            <div className="w-ful flex items-center space-x-[14px]">
+            <div className="w-ful flex items-center space-x-3.5">
               <Image
                 alt="Fajar Siddiq"
                 src="/assets/fazar.png"

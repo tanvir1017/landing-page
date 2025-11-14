@@ -1,6 +1,4 @@
-// @ts-nocheck
 "use client";
-
 import ArrowLeft from "@/src/assets/svgs/arrow-left";
 import FilterIcon from "@/src/assets/svgs/filter";
 import { StyledButtons } from "@/src/components/style-componenets/styled-buttons";
@@ -23,13 +21,16 @@ import { SearchIcon } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import UserTableSkeleton, {
+  Skeleton,
+} from "../../style-componenets/skeletons/user-table-skeleton";
 import { UserDeleteDialog } from "./user-delete-dialog";
 
 export function UserTable() {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [itemsPerPage] = useState<number>(5); // Items per page
-  const [totalPages, setTotalPages] = useState<number>(1); // Total number of pages
+  const [itemsPerPage] = useState<number>(5);
+  const [totalPages, setTotalPages] = useState<number>(1);
   const [filteredUsers, setFilteredUsers] = useState<T_Deal[] | undefined>([]);
 
   const {
@@ -56,10 +57,13 @@ export function UserTable() {
           user.dealId.toLowerCase().includes(searchQuery.toLowerCase())
       );
       setFilteredUsers(filtered);
+      // @ts-ignore
       setTotalPages(Math.ceil(filtered.length / itemsPerPage));
       setCurrentPage(1); // Reset to first page after search
     } else {
+      // @ts-ignore
       setFilteredUsers(users);
+      // @ts-ignore
       setTotalPages(Math.ceil(users?.length / itemsPerPage));
     }
   }, [searchQuery, users]);
@@ -85,6 +89,7 @@ export function UserTable() {
         }
 
         // Re-fetch the data or remove from local state
+        // @ts-ignore
         setFilteredUsers(filteredUsers.filter((user) => user.dealId !== id));
         return { id };
       },
@@ -292,43 +297,5 @@ const TableHeaders = () => {
         </TableHead>
       </TableRow>
     </TableHeader>
-  );
-};
-const UserTableSkeleton = () => {
-  return (
-    <>
-      {[...Array(5)]?.map((_, index) => (
-        <TableRow key={index}>
-          <TableCell className="py-3.5 px-6 ">
-            <Skeleton className="w-24 h-8" />
-          </TableCell>
-          <TableCell className="py-3.5 px-6">
-            <Skeleton className="w-24 h-8" />
-          </TableCell>
-          <TableCell className="py-3.5 px-6">
-            <Skeleton className="w-24 h-8" />
-          </TableCell>
-          <TableCell className="py-3.5 px-6">
-            <Skeleton className="w-24 h-8" />
-          </TableCell>
-          <TableCell className="py-3.5 px-6 ">
-            <Skeleton className="w-24 h-8" />
-          </TableCell>
-          <TableCell className="py-3.5 px-6 ">
-            <Skeleton className="w-24 h-8" />
-          </TableCell>
-          <TableCell className="py-3.5 px-6 ">
-            <Skeleton className="w-24 h-8" />
-          </TableCell>
-        </TableRow>
-      ))}
-    </>
-  );
-};
-const Skeleton = ({ className }) => {
-  return (
-    <div
-      className={cn(`h-4 w-24 bg-gray-200 rounded-md animate-pulse`, className)}
-    />
   );
 };

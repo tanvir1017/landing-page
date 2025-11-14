@@ -18,8 +18,8 @@ const Footer = () => {
   return (
     <Container className="max-w-full">
       <div className={SectionBorder.wrapper("top")}>
-        <div className="relative mb-[86px] mt-sec-gap md:mx-10 mx-2 ">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+        <div className="relative mb-[86px] mt-sec-gap  md:mx-10 mx-2 ">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 pt-sec-gap">
             <div className="col-span-2">
               <div className="mb-12 space-y-7">
                 <SiteLogo className="" />

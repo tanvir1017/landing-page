@@ -9,11 +9,16 @@ import { ChevronRight, Mail } from "lucide-react";
 
 const NewsLetter = () => {
   return (
-    <Container className="bg-[#030712] max-w-full ">
+    <Container className="max-w-full relative">
       <Breaker />
-      <div className={SectionBorder.wrapper("both", "mt-sec-gap")}>
-        <div className="py-20">
-          <div className="grid grid-cols-1 md:grid-cols-5 md:border-[#1A1E28] space-y-4 md:space-y-0">
+      <div
+        className={SectionBorder.wrapper(
+          "both",
+          "mt-sec-gap py-20 bg-[#030712]"
+        )}
+      >
+        <SectionBorder.SectionBorderWrapper className="md:border-[#1A1E28] border">
+          <div className="grid grid-cols-1 md:grid-cols-5  space-y-4 md:space-y-0 ">
             <div className="col-span-1  md:border-r md:border-[#1A1E28] flex items-center justify-center">
               <h4
                 className={cn(
@@ -48,14 +53,14 @@ const NewsLetter = () => {
                 </div>
                 <StyledButtons.PrimaryCTA
                   type="button"
-                  className="w-[149px] h-[46px] mt-4 md:hidden flex items-center justify-center mx-auto"
+                  className="w-[149px] h-[46px] mt-4 md:hidden flex items-center justify-center mx-auto z-20 cursor-pointer"
                 >
                   Get Offers <ChevronRight />
                 </StyledButtons.PrimaryCTA>
               </form>
             </div>
           </div>
-        </div>
+        </SectionBorder.SectionBorderWrapper>
       </div>
     </Container>
   );
