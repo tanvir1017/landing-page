@@ -10,8 +10,10 @@ import { ProfileDropDown } from "../../dashboard/profile-dropdown";
 
 import MacSuper from "@/src/assets/svgs/mac-super";
 import { ChevronRight, SearchIcon, X } from "lucide-react";
+import React from "react";
 import { toast } from "sonner";
 import { StyledButtons } from "../../style-componenets/styled-buttons";
+import { Button } from "../../ui/button";
 import { Input } from "../../ui/input";
 import Container from "../container";
 import { Navigation } from "../navigation";
@@ -24,13 +26,19 @@ const Navbar = ({
   session: SessionContext | null;
   megaMenu: T_MenuItem[];
 }) => {
+  const [isVisible, setIsVisible] = React.useState(true);
   return (
-    <div className="sticky top-0 mx-auto bg-white z-50 border-b">
-      <Container className="max-w-[92.3%] border-x">
-        <div className={"px-6 py-3"}>
-          <VersionNoticeTopBar />
-        </div>
-        <div className="px-8 py-5 border-t">
+    <div className="sticky top-0 mx-auto z-50 border-b bg-white">
+      <Container className="max-w-[92.3%]  border-x">
+        {isVisible && (
+          <div className={"px-6 py-3 border-b"}>
+            <VersionNoticeTopBar
+              isVisible={isVisible}
+              setIsVisible={setIsVisible}
+            />
+          </div>
+        )}
+        <div className="px-8 py-5">
           <DesktopNavbar session={session} megaMenu={megaMenu} />
         </div>
       </Container>
@@ -136,7 +144,14 @@ const MobileNavbar = ({
   );
 };
 
-const VersionNoticeTopBar = () => {
+const VersionNoticeTopBar = ({
+  isVisible,
+  setIsVisible,
+}: {
+  isVisible: boolean;
+  setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
+  if (!isVisible) return null;
   return (
     <div className="w-full bg-sec rounded-xl  text-center py-3">
       <div className="flex items-center justify-between">
@@ -152,7 +167,12 @@ const VersionNoticeTopBar = () => {
             <ChevronRight className="ml-2 h-4 w-4" />
           </StyledButtons.Icons>
         </div>
-        <X className="text-[#9CA3AF] size-5 mr-2" />
+        <Button
+          onClick={() => setIsVisible(false)}
+          className="bg-sec hover:bg-sec mr-2 cursor-pointer"
+        >
+          <X className="text-[#9CA3AF] size-5 cursor-pointer" />
+        </Button>
       </div>
     </div>
   );

@@ -11,15 +11,16 @@ const NewsLetter = () => {
   return (
     <Container className="max-w-full relative">
       <Breaker />
-      <div
-        className={SectionBorder.wrapper(
-          "both",
-          "mt-sec-gap py-20 bg-[#030712]"
-        )}
-      >
-        <SectionBorder.SectionBorderWrapper className="md:border-[#1A1E28] border">
-          <div className="grid grid-cols-1 md:grid-cols-5  space-y-4 md:space-y-0 ">
-            <div className="col-span-1  md:border-r md:border-[#1A1E28] flex items-center justify-center">
+      <div className={SectionBorder.wrapper("both", "mt-sec-gap bg-[#030712]")}>
+        <EmptyGrid />
+        <SectionBorder.SectionBorderWrapper
+          className={SectionBorder.wrapper(
+            "both",
+            " border-[#1A1E28] border-y"
+          )}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-5  space-y-4 md:space-y-0">
+            <div className="md:border-r border-r-0 md:border-[#1A1E28] flex items-center justify-center">
               <h4
                 className={cn(
                   "text-white font-medium text-4xl leading-10 tracking-[-2px]",
@@ -61,8 +62,19 @@ const NewsLetter = () => {
             </div>
           </div>
         </SectionBorder.SectionBorderWrapper>
+        <EmptyGrid />
       </div>
     </Container>
+  );
+};
+
+export const EmptyGrid = () => {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-5">
+      <div className="col-span-1 md:border-r md:border-[#1A1E28] pt-20"></div>
+      <div className="col-span-2 md:border-r border-r-0 md:border-[#1A1E28]"></div>
+      <div className="col-span-2"></div>
+    </div>
   );
 };
 

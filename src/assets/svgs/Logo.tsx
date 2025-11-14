@@ -10,7 +10,7 @@ const SiteLogo = ({ className }: { className?: string }) => {
       <g filter="url(#filter0_i_16106_22783)">
         <path
           fillRule="evenodd"
-          clip-rule="evenodd"
+          clipRule="evenodd"
           d="M20.0007 0C27.4777 0 31.2164 -0.000204921 34.0011 1.60742C35.8254 2.66064 37.3406 4.17577 38.3939 6C40.0015 8.7846 40.0013 12.5232 40.0013 20C40.0013 27.4768 40.0015 31.2154 38.3939 34C37.3406 35.8242 35.8254 37.3394 34.0011 38.3926C31.2164 40.0002 27.4777 40 20.0007 40C12.5236 40 8.78489 40.0002 6.0002 38.3926C4.17591 37.3394 2.66073 35.8242 1.60747 34C-0.000204928 31.2154 0 27.4768 0 20C0 12.5232 -0.000204928 8.7846 1.60747 6C2.66073 4.17577 4.17591 2.66064 6.0002 1.60742C8.78489 -0.000204921 12.5236 0 20.0007 0ZM22.0007 4C13.1638 4 6.0002 11.1634 6.0002 20C6.0002 28.8366 13.1638 36 22.0007 36C30.8376 36 38.0013 28.8366 38.0013 20C38.0013 11.1634 30.8376 4 22.0007 4Z"
           fill="url(#paint0_linear_16106_22783)"
         />
@@ -49,7 +49,7 @@ const SiteLogo = ({ className }: { className?: string }) => {
           filterUnits="userSpaceOnUse"
           color-interpolation-filters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"

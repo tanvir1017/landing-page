@@ -14,7 +14,7 @@ const VariableIcon = ({ className }: { className?: string }) => {
         <path
           d="M16.4983 4.61555C16.9543 4.35224 17.4716 4.21362 17.9982 4.21362C18.5249 4.21362 19.0422 4.35224 19.4982 4.61555L28.8403 10.0095C29.2963 10.2728 29.675 10.6515 29.9383 11.1076C30.2016 11.5636 30.3402 12.0809 30.3403 12.6075V23.3925C30.3402 23.9191 30.2016 24.4365 29.9383 24.8925C29.675 25.3485 29.2963 25.7272 28.8403 25.9905L19.4982 31.386C19.0422 31.6494 18.5249 31.788 17.9982 31.788C17.4716 31.788 16.9543 31.6494 16.4983 31.386L7.15625 25.9935C6.69998 25.7301 6.32114 25.3512 6.05782 24.8949C5.7945 24.4385 5.656 23.9209 5.65625 23.394V12.609C5.65626 12.0825 5.79489 11.5651 6.05819 11.1091C6.3215 10.653 6.7002 10.2743 7.15625 10.011L16.4983 4.61555Z"
           stroke="#9CA3AF"
-          stroke-width="2.5"
+          strokeWidth="2.5"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
@@ -23,7 +23,7 @@ const VariableIcon = ({ className }: { className?: string }) => {
         <path
           d="M16.875 18H19.125M20.25 18C20.25 18.5967 20.0129 19.169 19.591 19.591C19.169 20.0129 18.5967 20.25 18 20.25C17.4033 20.25 16.831 20.0129 16.409 19.591C15.9871 19.169 15.75 18.5967 15.75 18C15.75 17.4033 15.9871 16.831 16.409 16.409C16.831 15.9871 17.4033 15.75 18 15.75C18.5967 15.75 19.169 15.9871 19.591 16.409C20.0129 16.831 20.25 17.4033 20.25 18Z"
           stroke="#9CA3AF"
-          stroke-width="3"
+          strokeWidth="3"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
@@ -38,7 +38,7 @@ const VariableIcon = ({ className }: { className?: string }) => {
           filterUnits="userSpaceOnUse"
           color-interpolation-filters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -73,7 +73,7 @@ const VariableIcon = ({ className }: { className?: string }) => {
           filterUnits="userSpaceOnUse"
           color-interpolation-filters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"

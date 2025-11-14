@@ -208,7 +208,7 @@ const SignUpComponent = () => {
                 {/* Google Button */}
                 <Button
                   onClick={googleSignIn}
-                  className="w-full h-12 rounded-full border-[0.5px] border-slate-200 bg-white hover:bg-slate-200 transition-colors flex items-center justify-center gap-3 text-slate-700 font-medium cursor-pointer"
+                  className="w-full h-12 rounded-full border-[0.5px] border-slate-200 bg-white hover:bg-[#E5E7EB]  transition-colors flex items-center justify-center gap-3 text-slate-700 font-medium cursor-pointer"
                 >
                   <GoogleIcon />
                   <span className="text-sm md:text-base">
@@ -219,9 +219,9 @@ const SignUpComponent = () => {
                 {/* GitHub Button */}
                 <Button
                   onClick={githubSignIn}
-                  className="w-full h-12 rounded-full border-[0.5px] border-slate-200 bg-white hover:bg-slate-200 transition-colors flex items-center justify-center gap-3 text-slate-700 font-medium cursor-pointer"
+                  className="w-full h-12 rounded-full border-[0.5px] border-slate-200 bg-white hover:bg-[#E5E7EB]  transition-colors flex items-center justify-center gap-3 text-slate-700 font-medium cursor-pointer"
                 >
-                  <GithubIcon />
+                  <GithubIcon fill="#000000" />
                   <span className="text-sm md:text-base">
                     Continue with Github
                   </span>
@@ -237,10 +237,8 @@ const SignUpComponent = () => {
                 <div className="flex-1 h-px bg-[#E5E7EB]" />
               </div>
 
-              {/* Form */}
               <div className="bg-white rounded-2xl md:rounded-3xl p-5 md:p-8 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
                 <form onSubmit={handleSignIn} className="space-y-5">
-                  {/* Name Input */}
                   <div className="relative">
                     <label className="mb-2 block text-[#374151] text-sm">
                       Full Name

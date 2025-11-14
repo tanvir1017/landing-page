@@ -14,7 +14,7 @@ function LogoutIcon({ className }: { className?: string }) {
         <path
           d="M4 12H11.75M7.99928 8L4.00195 11.9999L7.99928 16M9.75 4.99609V4.25C9.75 3.42157 10.4216 2.75 11.25 2.75H17.25C18.0784 2.75 18.75 3.42157 18.75 4.25V19.75C18.75 20.5784 18.0784 21.25 17.25 21.25H11.25C10.4216 21.25 9.75 20.5784 9.75 19.75V19"
           stroke="#9CA3AF"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
@@ -29,7 +29,7 @@ function LogoutIcon({ className }: { className?: string }) {
           filterUnits="userSpaceOnUse"
           color-interpolation-filters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"

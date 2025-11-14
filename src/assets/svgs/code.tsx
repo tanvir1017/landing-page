@@ -13,7 +13,7 @@ function CodeIcon({ className }: { className?: string }) {
       <path
         d="M3.75 3.75006L0.75 6.75034L3.75 9.75034M11.625 3.75006L14.625 6.75034L11.625 9.75034M9.02043 0.750244L6.35376 12.7502"
         stroke="#6B7280"
-        stroke-width="1.5"
+        strokeWidth="1.5"
         stroke-linecap="round"
         stroke-linejoin="round"
       />

@@ -7,8 +7,6 @@ import HeroBadge from "./hero-badge";
 const HeroSection = () => {
   return (
     <div className="relative bg-[url('/assets/hero-gradients.png')] bg-no-repeat bg-size-[auto_650px] bg-position-[center_top_-0.9rem] overflow-hidden -mt-px">
-      {/* <AnnouncementBar /> */}
-
       {/* Main Hero Content */}
       <div className="relative flex flex-col items-center justify-center mt-20">
         <div className="flex flex-col items-center max-w-5xl mx-auto">
