@@ -1,12 +1,10 @@
 import Navbar from "@/src/components/shared/navbar/navbar";
 import { auth } from "@/src/lib/auth";
 import { dmSans } from "@/src/lib/fonts";
-import { T_MenuItem } from "@/types";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { Toaster } from "sonner";
 import { DiagonalPattern } from "../components/style-componenets/diagonal-stripes";
-import { getNavMenu } from "./actions/fetch-data";
 
 // @ts-ignore
 import "./globals.css";
@@ -27,12 +25,10 @@ export default async function RootLayout({
     headers: await headers(),
   });
 
-  const megaMenu = (await getNavMenu()) as T_MenuItem[];
-
   return (
     <html lang="en">
       <body className={`${dmSans.className} antialiased relative isolate `}>
-        <Navbar session={session} megaMenu={megaMenu} />
+        <Navbar session={session} />
         <DiagonalPattern.DiagonalPatternWrapper>
           {children}
         </DiagonalPattern.DiagonalPatternWrapper>

@@ -9,8 +9,8 @@
 <path d="M55.1573 23.6086H60.3443V26.0973H52V10.4477H55.1573V23.6086Z" fill="#0F172A"/>
 <path d="M83.7663 26.8209C84.0207 26.7189 84.2697 26.6028 84.513 26.4726L84.5182 26.4698C85.5922 25.8874 86.4631 25.0829 87.1187 24.0684V26.5334C87.0487 29.8514 84.3322 32.5195 80.9916 32.5195H80.6554C77.3149 32.5195 74.5986 29.8514 74.5287 26.5334H77.8526C77.9213 28.0194 79.1499 29.2031 80.6554 29.2031H80.9916C82.3987 29.2031 83.5639 28.1692 83.7663 26.8209Z" fill="#0F172A"/>
 <defs>
-<filter id="filter0_i_16106_22783" x="0" y="0" width="40" height="42" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-<feFlood colorInterpolationFilters="0" result="BackgroundImageFix"/>
+<filter id="filter0_i_16106_22783" x="0" y="0" width="40" height="42" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="2"/>
@@ -20,12 +20,12 @@
 <feBlend mode="normal" in2="shape" result="effect1_innerShadow_16106_22783"/>
 </filter>
 <linearGradient id="paint0_linear_16106_22783" x1="16.0005" y1="10" x2="36.0005" y2="30.0007" gradientUnits="userSpaceOnUse">
-<stop stopColor="#5E84FC"/>
-<stop offset="1" stopColor="#3758F9"/>
+<stop stop-color="#5E84FC"/>
+<stop offset="1" stop-color="#3758F9"/>
 </linearGradient>
 <linearGradient id="paint1_linear_16106_22783" x1="16.0005" y1="10" x2="36.0005" y2="30.0007" gradientUnits="userSpaceOnUse">
-<stop stopColor="#5E84FC"/>
-<stop offset="1" stopColor="#3758F9"/>
+<stop stop-color="#5E84FC"/>
+<stop offset="1" stop-color="#3758F9"/>
 </linearGradient>
 </defs>
 </svg>

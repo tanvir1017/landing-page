@@ -20,13 +20,7 @@ import Container from "../container";
 import { Navigation } from "../navigation";
 import { MobileNavbarSlider } from "./sheet";
 
-const Navbar = ({
-  session,
-  megaMenu,
-}: {
-  session: SessionContext | null;
-  megaMenu: T_MenuItem[];
-}) => {
+const Navbar = ({ session }: { session: SessionContext | null }) => {
   const [isVisible, setIsVisible] = React.useState(true);
   return (
     <div className="sticky top-0 mx-auto z-50 border-b bg-white max-w-full">
@@ -191,5 +185,77 @@ const VersionNoticeTopBar = ({
     </div>
   );
 };
+
+const megaMenu = [
+  {
+    id: "components",
+    label: "Components",
+    type: "mega",
+    columns: [
+      {
+        title: "Application",
+        description:
+          "Components crafted for building all kinds of modern webapps and sites",
+        icon: "layout",
+        href: "/components/application",
+      },
+      {
+        title: "Dashboard",
+        description:
+          "Build data-rich modern backends, dashboards and admin panels",
+        icon: "bar-chart",
+        href: "/components/dashboard",
+      },
+      {
+        title: "AI Components",
+        description:
+          "Everything you need to create stunning AI tools and landing pages",
+        icon: "sparkles",
+        href: "/components/ai",
+      },
+      {
+        title: "Marketing",
+        description:
+          "All you need to create stunning and high-converting landing pages",
+        icon: "megaphone",
+        href: "/components/marketing",
+      },
+      {
+        title: "E-commerce",
+        description:
+          "Components and pages you need to build a complete online store UI",
+        icon: "shopping-cart",
+        href: "/components/ecommerce",
+      },
+      {
+        title: "Core Components",
+        description:
+          "Core UI components to kickstart any web project – Open-source",
+        icon: "grid",
+        href: "/components/core",
+      },
+    ],
+  },
+  {
+    id: "templates",
+    label: "Templates",
+    href: "/templates",
+  },
+  {
+    id: "docs",
+    label: "Docs",
+    href: "/docs",
+  },
+  {
+    id: "products",
+    label: "Products",
+    href: "/products",
+  },
+  {
+    id: "resources",
+    label: "Resources",
+    href: "/resources",
+  },
+];
 
 export default Navbar;
